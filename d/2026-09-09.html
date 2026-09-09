@@ -319,7 +319,7 @@ body{
 .stat.bad .num{color:#f09184}
 .stat.good .num{color:#82d7b2}
 
-/* 말풍선 끝의 ▼ 계속 표시 */
+/* 말풍선 끝의 ▼ — 더 볼 게 있으면 단추가 된다 */
 .cont{
   display:block;text-align:right;margin-top:10px;
   color:var(--vermil);font-size:12px;line-height:1;
@@ -328,6 +328,41 @@ body{
 .who.aside .cont{color:#c2ad72}
 @keyframes blink{ 0%,100%{opacity:.25} 50%{opacity:1} }
 @media (prefers-reduced-motion: reduce){ .cont{animation:none;opacity:.7} }
+
+.cont.btn{
+  animation:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;float:right;
+  margin-top:14px;padding:7px 15px;
+  background:linear-gradient(180deg,#3b3320,#1d1810);
+  border:1px solid var(--gold-d);border-radius:4px;
+  color:var(--gold-l);font-family:inherit;font-size:12.5px;letter-spacing:.08em;
+  box-shadow:inset 0 1px 0 rgba(255,232,170,.18), 0 3px 8px rgba(0,0,0,.45);
+  transition:background .18s, box-shadow .18s, transform .12s
+}
+.cont.btn:hover{
+  background:linear-gradient(180deg,#524427,#2a2213);
+  box-shadow:inset 0 1px 0 rgba(255,232,170,.3), 0 0 14px rgba(201,162,39,.3);
+  transform:translateY(-1px)
+}
+.cont.btn .cv{transition:transform .25s}
+.bubble.open .cont.btn .cv{transform:rotate(180deg)}
+.who.aside .cont.btn{background:linear-gradient(180deg,#2e2a1d,#191610)}
+
+/* 접힌 상세 */
+.bubble .more{
+  display:none;clear:both;
+  margin-top:16px;padding-top:16px;
+  border-top:1px dashed rgba(122,97,23,.55)
+}
+.bubble.open .more{display:block;animation:unfold .45s cubic-bezier(.2,.8,.3,1) both}
+@keyframes unfold{ from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:none} }
+.bubble .more p{margin:0 0 12px}
+.bubble .more p:last-child{margin-bottom:0}
+.bubble .more h4{
+  margin:0 0 10px;font-size:13px;letter-spacing:.12em;font-weight:700;
+  color:var(--jade)
+}
+.who.aside .bubble .more{border-top-color:rgba(201,162,39,.35)}
 
 /* 제목 각인 */
 .beam-txt h1{text-shadow:0 2px 0 #000, 0 0 18px rgba(201,162,39,.25)}
@@ -442,6 +477,90 @@ body{
   color:var(--gold-l) !important;font-size:12px !important;font-weight:700;
   letter-spacing:.02em
 }
+
+/* ══ 인트로 3초 ═══════════════════════════════════════ */
+.intro{
+  position:fixed;inset:0;z-index:9999;
+  background:radial-gradient(ellipse at 50% 45%, #1b1610 0%, #06060a 70%);
+  display:grid;place-items:center;overflow:hidden;
+  animation:introOut .9s ease 3.1s both
+}
+.intro-in{position:relative;text-align:center;z-index:2}
+.intro .seal{
+  width:118px;height:118px;margin:0 auto 26px;
+  border:3px solid var(--vermil);background:rgba(165,42,30,.12);
+  display:grid;place-items:center;color:#e8b3a6;
+  font-size:34px;font-weight:900;letter-spacing:.12em;line-height:1.2;
+  transform:rotate(-6deg) scale(.4);opacity:0;
+  animation:sealIn .8s cubic-bezier(.2,.9,.3,1.4) .15s both
+}
+.intro h1{
+  margin:0 0 12px;font-size:clamp(28px,6vw,52px);font-weight:900;
+  color:#f2e2b4;letter-spacing:.24em;
+  text-shadow:0 0 26px rgba(201,162,39,.45), 0 3px 0 #000;
+  opacity:0;animation:riseIn .8s cubic-bezier(.2,.8,.3,1) .55s both
+}
+.intro .sub{
+  font-size:clamp(12px,2.6vw,15px);color:#a2946e;letter-spacing:.3em;
+  opacity:0;animation:riseIn .8s cubic-bezier(.2,.8,.3,1) .85s both
+}
+.intro .rule{
+  width:0;height:2px;margin:20px auto 0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:ruleIn .9s ease .95s both
+}
+.intro .glow{
+  position:absolute;inset:-30%;z-index:1;pointer-events:none;
+  background:conic-gradient(from 0deg, transparent 0 78%, rgba(201,162,39,.16) 88%, transparent 100%);
+  animation:spin 3.4s linear both
+}
+@keyframes sealIn{ to{transform:rotate(-6deg) scale(1);opacity:1} }
+@keyframes riseIn{ from{transform:translateY(14px)} to{transform:none;opacity:1} }
+@keyframes ruleIn{ to{width:min(360px,72vw)} }
+@keyframes spin{ to{transform:rotate(360deg)} }
+@keyframes introOut{ to{opacity:0;visibility:hidden} }
+@media (prefers-reduced-motion: reduce){ .intro{display:none} }
+
+/* ══ 상단 머리 업그레이드 ══════════════════════════════ */
+.beam-in{padding:22px 26px}
+.plaque{
+  font-size:30px;padding:12px 24px;
+  background:linear-gradient(150deg,#c4372a,#6d1710);
+  box-shadow:inset 0 1px 0 rgba(255,220,200,.35), inset 0 -3px 8px rgba(0,0,0,.55), 0 6px 18px rgba(0,0,0,.6)
+}
+.beam-txt h1{font-size:23px;letter-spacing:.05em}
+.beam-date b{font-size:15px}
+.beam::after{
+  content:"";display:block;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold) 20%,#fff3cf 50%,var(--gold) 80%,transparent);
+  opacity:.5
+}
+
+/* ── 클로드 코드로 보내기 ──────────────────────────── */
+.cc{
+  display:inline-flex;align-items:center;gap:7px;margin-top:12px;
+  padding:8px 15px;cursor:pointer;
+  background:linear-gradient(180deg,#2f6b5a,#17402f);
+  border:1px solid #4e9c85;border-radius:4px;
+  color:#dff5ec;font-family:inherit;font-size:12.5px;letter-spacing:.04em;font-weight:500;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18), 0 3px 8px rgba(0,0,0,.4);
+  transition:background .18s, transform .12s, box-shadow .18s
+}
+.cc:hover{background:linear-gradient(180deg,#3d8570,#1d5340);transform:translateY(-1px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 0 14px rgba(78,156,133,.4)}
+.cc.done{background:linear-gradient(180deg,#7a6117,#3d3009);border-color:var(--gold)}
+.cc .ci{font-size:14px;line-height:1}
+.bubble code{cursor:pointer;position:relative}
+.bubble code:hover{outline:1px dashed rgba(201,162,39,.7);outline-offset:2px}
+.copied{
+  position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(10px);
+  z-index:200;padding:11px 20px;border-radius:5px;
+  background:linear-gradient(180deg,#2f6b5a,#17402f);border:1px solid #4e9c85;
+  color:#e8f7f1;font-size:13.5px;letter-spacing:.03em;
+  box-shadow:0 8px 24px rgba(0,0,0,.6);
+  opacity:0;visibility:hidden;transition:opacity .25s, transform .25s
+}
+.copied.on{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 
 /* ── 형세판 (능력치판) ─────────────────────────────── */
 .board{
@@ -669,8 +788,14 @@ body{
 
 /* ── 고전 ───────────────────────────────────────────── */
 .classic{text-align:center;padding:4px 0}
-.classic .han{font-size:23px;font-weight:700;color:#33291a;letter-spacing:.14em;line-height:1.9;margin-bottom:10px}
-.classic .rd{font-size:14px;color:#7c6c48;letter-spacing:.08em;margin-bottom:14px}
+.classic .han{
+  font-size:16px;font-weight:500;color:#6d5c3a;letter-spacing:.06em;line-height:1.8;
+  margin-bottom:12px;font-style:italic
+}
+.classic .rd{
+  font-size:22px;font-weight:700;color:#33291a;letter-spacing:.01em;line-height:1.75;
+  margin-bottom:14px
+}
 .classic .src{font-size:13px;color:var(--jade);font-weight:500;margin-bottom:18px}
 .classic .exp{text-align:justify}
 
@@ -692,6 +817,16 @@ body{
 </style>
 </head>
 <body>
+<div class="intro" id="intro">
+  <span class="glow"></span>
+  <div class="intro-in">
+    <div class="seal">동성</div>
+    <h1>동성왕 아침 브리핑</h1>
+    <div class="sub">2026년 9월 9일 (수) · 제 2 회</div>
+    <div class="rule"></div>
+  </div>
+</div>
+
 <div class="hall">
 
   <div class="beam"><div class="beam-in">
@@ -717,13 +852,13 @@ body{
     <button class="spot" type="button" data-who="diaochan" style="left:67.3%;width:9.0%" aria-label="초선에게 다가간다"><span class="greet"><span class="g-face c-diaochan"></span><span class="g-txt"><b class="g-name">초선</b><span class="g-sum"></span><span class="g-go">눌러서 아뢴 말로 가기</span></span></span></button>
     <button class="spot" type="button" data-who="jini" style="left:76.6%;width:9.0%" aria-label="찌니에게 다가간다"><span class="greet"><span class="g-face c-jini"></span><span class="g-txt"><b class="g-name">찌니</b><span class="g-sum"></span><span class="g-go">눌러서 아뢴 말로 가기</span></span></span></button>
     <button class="spot" type="button" data-who="gongjin" style="left:87.8%;width:9.6%" aria-label="주유에게 다가간다"><span class="greet"><span class="g-face c-gongjin"></span><span class="g-txt"><b class="g-name">주유</b><span class="g-sum"></span><span class="g-go">눌러서 아뢴 말로 가기</span></span></span></button>
-    <div class="hero-cap"><b>동성왕의 대전</b> · 신하에게 다가가면 아뢸 바를 미리 일러준다</div>
+    <div class="hero-cap"><b>동성왕의 대전</b> · 인물에 마우스를 올리면 무슨 말을 할지 미리 보인다</div>
   </div>
 
 
   <button class="sb-open" id="sbOpen" type="button" aria-label="신하 목록 열기">☰</button>
   <div class="sb-x" id="sbX"></div>
-  <nav class="sb" id="sb"><div class="sb-t">신 하 명 부</div></nav>
+  <nav class="sb" id="sb"><div class="sb-t">오 늘 의 발 언 자</div></nav>
 
   <div class="cmd" id="cmd"></div>
 
@@ -751,6 +886,14 @@ body{
       <li><strong>"다 됐습니다"에는 증거를 물으십시오.</strong> "무엇을 실행해서 확인했느냐" 한마디면 충분합니다. 빌드 통과는 확인이 아닙니다.</li>
       <li><strong>0%·100% 같은 반듯한 숫자를 의심하십시오.</strong> 게이트 0건 통과에 한 번 속으셨습니다. 집계 말고 원본 한 줄을 여십시오.</li>
     </ol>
+    <div class="more">
+      <h4>왜 이것이 급한가</h4>
+      <p>전하의 기록에 같은 상처가 세 번 남아 있습니다. 이안치과 게이트에서 포트를 확인치 않아 남의 병원을 검사하고 0건 통과라 기뻐하신 일, 당신의치과에서 <code>site.css?v=</code> 를 하드코딩해 두고 바뀐 줄 아셨던 일, 화면이 뜨는 것을 보고 기능이 도는 줄 아셨던 일입니다. 세 번 다 원인이 같습니다. <em>본 것과 확인한 것을 구별하지 않으셨습니다.</em></p>
+      <p>병법에서는 이를 척후의 실패라 합니다. 척후가 "적진에 불빛이 있습니다" 하면 본 것이고, "적 본대가 저기 있습니다" 하면 판단입니다. 둘을 섞어 보고하는 척후는 군을 잃습니다.</p>
+      <h4>진짜 확인이란</h4>
+      <p>셋 중 하나여야 합니다. 실제로 실행해 결과를 눈으로 읽었거나, 저장된 값을 다시 꺼내 읽었거나, 화면을 눌러보고 반응을 봤거나. "코드를 작성했습니다"나 "빌드가 통과했습니다"는 코드가 깨지지 않았다는 뜻일 뿐, 기능이 돈다는 뜻이 아닙니다.</p>
+      <p>오늘은 이 하나만 몸에 붙이십시오. 나머지 기술은 다음 브리핑에서 하나씩 아뢰겠습니다.</p>
+    </div>
   </div>
 </div>
 
@@ -852,17 +995,17 @@ body{
   <table class="mkt">
     <thead><tr><th>품목</th><th>시세</th><th>등락</th><th>한 달 흐름</th><th>맹덕의 말</th></tr></thead>
     <tbody>
-<tr><td>비트코인</td><td>78,732.35</td><td class="down">▼ -0.48%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.7 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.7" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="6.7" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>이더리움</td><td>2,492.91</td><td class="up">▲ +0.08%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.9 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.9" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.9" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>리플</td><td>1.419</td><td class="up">▲ +1.54%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,7.7 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,7.7" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="7.7" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell"></td></tr>
+<tr><td>비트코인</td><td>78,732.35</td><td class="down">▼ -0.48%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.7 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.7" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="6.7" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">이레째 옆걸음이오. 조바심 낼 자리가 아니오</td></tr>
+<tr><td>이더리움</td><td>2,492.91</td><td class="up">▲ +0.08%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.9 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.9" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.9" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">제자리요. 볼 것 없소</td></tr>
+<tr><td>리플</td><td>1.419</td><td class="up">▲ +1.54%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,7.7 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,7.7" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="7.7" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">셋 중 홀로 오르오. 잔물결이니 믿지 마시오</td></tr>
 <tr><td>S&P500</td><td>7,673.52</td><td class="down">▼ -0.58%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,9.6 8.2,13.1 13.4,10.2 18.6,3.0 23.8,4.9 29.0,10.7 34.2,18.4 39.4,16.0 44.6,25.6 49.8,20.9 55.0,23.9 60.2,20.4 65.4,20.7 70.6,12.7 75.8,15.5 81.0,19.2 86.2,27.0 91.4,22.0 96.6,10.3 101.8,14.5 107.0,21.0 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,9.6 8.2,13.1 13.4,10.2 18.6,3.0 23.8,4.9 29.0,10.7 34.2,18.4 39.4,16.0 44.6,25.6 49.8,20.9 55.0,23.9 60.2,20.4 65.4,20.7 70.6,12.7 75.8,15.5 81.0,19.2 86.2,27.0 91.4,22.0 96.6,10.3 101.8,14.5 107.0,21.0" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="21.0" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>나스닥</td><td>26,421.41</td><td class="down">▼ -0.32%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="14.1" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>코스피</td><td>7,064.01</td><td class="up">▲ +1.57%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,25.6 12.9,18.2 17.9,10.9 22.8,5.7 27.8,9.1 32.7,21.6 37.7,9.6 42.6,7.7 47.6,14.5 52.5,13.1 57.5,11.0 62.4,7.8 67.4,11.6 72.3,10.7 77.3,10.2 82.2,18.7 87.2,18.2 92.1,14.8 97.1,5.2 102.0,6.4 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,25.6 12.9,18.2 17.9,10.9 22.8,5.7 27.8,9.1 32.7,21.6 37.7,9.6 42.6,7.7 47.6,14.5 52.5,13.1 57.5,11.0 62.4,7.8 67.4,11.6 72.3,10.7 77.3,10.2 82.2,18.7 87.2,18.2 92.1,14.8 97.1,5.2 102.0,6.4 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>코스닥</td><td>826.94</td><td class="up">▲ +1.85%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,15.2 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,15.2" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="15.2" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>원/달러</td><td>1,338.78</td><td class="down">▼ -0.36%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,3.0 8.0,4.6 12.9,3.3 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.5 42.6,11.1 47.6,12.9 52.5,14.2 57.5,13.9 62.4,13.3 67.4,14.3 72.3,15.3 77.3,18.5 82.2,16.6 87.2,21.0 92.1,21.9 97.1,25.1 102.0,25.5 107.0,27.0 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,3.0 8.0,4.6 12.9,3.3 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.5 42.6,11.1 47.6,12.9 52.5,14.2 57.5,13.9 62.4,13.3 67.4,14.3 72.3,15.3 77.3,18.5 82.2,16.6 87.2,21.0 92.1,21.9 97.1,25.1 102.0,25.5 107.0,27.0" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="27.0" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>금 (온스)</td><td>4,422.20</td><td class="down">▼ -0.17%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,25.9 8.2,24.1 13.4,22.0 18.6,25.7 23.8,24.3 29.0,21.3 34.2,25.5 39.4,15.4 44.6,13.2 49.8,4.4 55.0,3.0 60.2,3.2 65.4,6.5 70.6,5.5 75.8,16.3 81.0,20.2 86.2,27.0 91.4,25.5 96.6,15.2 101.8,20.3 107.0,23.2 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,25.9 8.2,24.1 13.4,22.0 18.6,25.7 23.8,24.3 29.0,21.3 34.2,25.5 39.4,15.4 44.6,13.2 49.8,4.4 55.0,3.0 60.2,3.2 65.4,6.5 70.6,5.5 75.8,16.3 81.0,20.2 86.2,27.0 91.4,25.5 96.6,15.2 101.8,20.3 107.0,23.2" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="23.2" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>은 (온스)</td><td>66.900</td><td class="up">▲ +1.29%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,21.9 8.2,23.4 13.4,20.0 18.6,23.0 23.8,22.5 29.0,17.5 34.2,27.0 39.4,19.2 44.6,9.3 49.8,3.0 55.0,7.0 60.2,6.6 65.4,9.4 70.6,3.2 75.8,13.7 81.0,17.1 86.2,24.1 91.4,23.6 96.6,13.8 101.8,17.9 107.0,16.8 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,21.9 8.2,23.4 13.4,20.0 18.6,23.0 23.8,22.5 29.0,17.5 34.2,27.0 39.4,19.2 44.6,9.3 49.8,3.0 55.0,7.0 60.2,6.6 65.4,9.4 70.6,3.2 75.8,13.7 81.0,17.1 86.2,24.1 91.4,23.6 96.6,13.8 101.8,17.9 107.0,16.8" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="16.8" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell"></td></tr>
-<tr><td>구리 (파운드)</td><td>6.751</td><td class="up">▲ +2.33%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,15.4 8.2,13.9 13.4,15.2 18.6,15.6 23.8,15.0 29.0,14.6 34.2,25.1 39.4,24.6 44.6,27.0 49.8,16.7 55.0,15.0 60.2,5.5 65.4,15.4 70.6,16.1 75.8,18.2 81.0,15.5 86.2,23.0 91.4,23.5 96.6,16.9 101.8,15.2 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,15.4 8.2,13.9 13.4,15.2 18.6,15.6 23.8,15.0 29.0,14.6 34.2,25.1 39.4,24.6 44.6,27.0 49.8,16.7 55.0,15.0 60.2,5.5 65.4,15.4 70.6,16.1 75.8,18.2 81.0,15.5 86.2,23.0 91.4,23.5 96.6,16.9 101.8,15.2 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell"></td></tr>
+<tr><td>나스닥</td><td>26,421.41</td><td class="down">▼ -0.32%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="14.1" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">기술주도 같은 이유요</td></tr>
+<tr><td>코스피</td><td>7,064.01</td><td class="up">▲ +1.57%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,25.6 12.9,18.2 17.9,10.9 22.8,5.7 27.8,9.1 32.7,21.6 37.7,9.6 42.6,7.7 47.6,14.5 52.5,13.1 57.5,11.0 62.4,7.8 67.4,11.6 72.3,10.7 77.3,10.2 82.2,18.7 87.2,18.2 92.1,14.8 97.1,5.2 102.0,6.4 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,25.6 12.9,18.2 17.9,10.9 22.8,5.7 27.8,9.1 32.7,21.6 37.7,9.6 42.6,7.7 47.6,14.5 52.5,13.1 57.5,11.0 62.4,7.8 67.4,11.6 72.3,10.7 77.3,10.2 82.2,18.7 87.2,18.2 92.1,14.8 97.1,5.2 102.0,6.4 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">7천선 위요. 오늘의 주인공이오</td></tr>
+<tr><td>코스닥</td><td>826.94</td><td class="up">▲ +1.85%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,15.2 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,15.2" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="15.2" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">코스피보다 더 뛰었소</td></tr>
+<tr><td>원/달러</td><td>1,338.78</td><td class="down">▼ -0.36%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,3.0 8.0,4.6 12.9,3.3 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.5 42.6,11.1 47.6,12.9 52.5,14.2 57.5,13.9 62.4,13.3 67.4,14.3 72.3,15.3 77.3,18.5 82.2,16.6 87.2,21.0 92.1,21.9 97.1,25.1 102.0,25.5 107.0,27.0 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,3.0 8.0,4.6 12.9,3.3 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.5 42.6,11.1 47.6,12.9 52.5,14.2 57.5,13.9 62.4,13.3 67.4,14.3 72.3,15.3 77.3,18.5 82.2,16.6 87.2,21.0 92.1,21.9 97.1,25.1 102.0,25.5 107.0,27.0" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="27.0" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">원화가 강해지오. 해외 결제값이 싸지오</td></tr>
+<tr><td>금 (온스)</td><td>4,422.20</td><td class="down">▼ -0.17%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,25.9 8.2,24.1 13.4,22.0 18.6,25.7 23.8,24.3 29.0,21.3 34.2,25.5 39.4,15.4 44.6,13.2 49.8,4.4 55.0,3.0 60.2,3.2 65.4,6.5 70.6,5.5 75.8,16.3 81.0,20.2 86.2,27.0 91.4,25.5 96.6,15.2 101.8,20.3 107.0,23.2 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,25.9 8.2,24.1 13.4,22.0 18.6,25.7 23.8,24.3 29.0,21.3 34.2,25.5 39.4,15.4 44.6,13.2 49.8,4.4 55.0,3.0 60.2,3.2 65.4,6.5 70.6,5.5 75.8,16.3 81.0,20.2 86.2,27.0 91.4,25.5 96.6,15.2 101.8,20.3 107.0,23.2" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="23.2" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">하루 쉬어가오. 추세는 살아 있소</td></tr>
+<tr><td>은 (온스)</td><td>66.900</td><td class="up">▲ +1.29%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,21.9 8.2,23.4 13.4,20.0 18.6,23.0 23.8,22.5 29.0,17.5 34.2,27.0 39.4,19.2 44.6,9.3 49.8,3.0 55.0,7.0 60.2,6.6 65.4,9.4 70.6,3.2 75.8,13.7 81.0,17.1 86.2,24.1 91.4,23.6 96.6,13.8 101.8,17.9 107.0,16.8 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,21.9 8.2,23.4 13.4,20.0 18.6,23.0 23.8,22.5 29.0,17.5 34.2,27.0 39.4,19.2 44.6,9.3 49.8,3.0 55.0,7.0 60.2,6.6 65.4,9.4 70.6,3.2 75.8,13.7 81.0,17.1 86.2,24.1 91.4,23.6 96.6,13.8 101.8,17.9 107.0,16.8" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="16.8" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">금보다 앞서오. 산업 수요가 붙었소</td></tr>
+<tr><td>구리 (파운드)</td><td>6.751</td><td class="up">▲ +2.33%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,15.4 8.2,13.9 13.4,15.2 18.6,15.6 23.8,15.0 29.0,14.6 34.2,25.1 39.4,24.6 44.6,27.0 49.8,16.7 55.0,15.0 60.2,5.5 65.4,15.4 70.6,16.1 75.8,18.2 81.0,15.5 86.2,23.0 91.4,23.5 96.6,16.9 101.8,15.2 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,15.4 8.2,13.9 13.4,15.2 18.6,15.6 23.8,15.0 29.0,14.6 34.2,25.1 39.4,24.6 44.6,27.0 49.8,16.7 55.0,15.0 60.2,5.5 65.4,15.4 70.6,16.1 75.8,18.2 81.0,15.5 86.2,23.0 91.4,23.5 96.6,16.9 101.8,15.2 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">런던서 사상 최고요. 물가로 돌아올 것이오</td></tr>
     </tbody>
   </table>
 </div>
@@ -897,19 +1040,63 @@ body{
   </div>
   </div>
   </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
   <div class="close">
     <div class="words">
-      신 등의 말은 여기까지입니다 &middot; 판단은 전하의 몫입니다<br>
-      <span class="sig">신 등은 물러갑니다</span>
+      여기까지가 오늘 아침에 드리는 말씀입니다 &middot; 판단은 전하의 몫입니다<br>
+      <span class="sig">내일 아침에 다시 뵙겠습니다</span>
     </div>
-    <div class="stamp">브리핑<br>끝</div>
+    <div class="stamp">오늘<br>끝</div>
   </div>
 
 </div>
 
 <script>
 (function () {
+  // 짧은 효과음. 풍악과 별개로 눌렀을 때만 난다.
+  var clickCtx = null;
+  function blip(freq) {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!clickCtx) clickCtx = new AC();
+      if (clickCtx.state === 'suspended') clickCtx.resume();
+      var t = clickCtx.currentTime, o = clickCtx.createOscillator(), g = clickCtx.createGain();
+      o.type = 'triangle'; o.frequency.setValueAtTime(freq || 780, t);
+      o.frequency.exponentialRampToValueAtTime((freq || 780) * 0.6, t + 0.09);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.09, t + 0.008);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+      o.connect(g); g.connect(clickCtx.destination);
+      o.start(t); o.stop(t + 0.16);
+    } catch (e) { }
+  }
+  window.blip = blip;
+
+  // 인트로는 3.9초 뒤 완전히 걷어낸다 (애니메이션이 끝난 뒤)
+  var intro = document.getElementById('intro');
+  if (intro) {
+    var reduceIn = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceIn) { intro.remove(); }
+    else {
+      document.documentElement.style.overflow = 'hidden';
+      setTimeout(function () {
+        intro.remove();
+        document.documentElement.style.overflow = '';
+      }, 4000);
+      intro.addEventListener('click', function () {
+        intro.remove();
+        document.documentElement.style.overflow = '';
+      });
+    }
+  }
+
   // 각 신하 대목에서 요약 한 줄을 뽑아 말풍선에 넣는다.
   // 본문이 매일 바뀌어도 자동으로 따라간다.
   function summarize(el) {
@@ -959,6 +1146,52 @@ body{
     });
   }
 
+  // ── 클로드 코드로 보내기 ─────────────────────────
+  var toast = document.createElement('div');
+  toast.className = 'copied';
+  document.body.appendChild(toast);
+  var toastT = null;
+  function say(msg) {
+    toast.textContent = msg;
+    toast.classList.add('on');
+    clearTimeout(toastT);
+    toastT = setTimeout(function () { toast.classList.remove('on'); }, 2200);
+  }
+  function copy(text, msg) {
+    function ok() { say(msg || '복사했습니다. 클로드 코드에 붙여넣으십시오.'); blip(920); }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(ok, function () { fallback(text, ok); });
+    } else { fallback(text, ok); }
+  }
+  function fallback(text, ok) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); ok(); } catch (e) { say('복사하지 못했습니다. 직접 긁어 복사하십시오.'); }
+    document.body.removeChild(ta);
+  }
+
+  // 코드 조각은 눌러서 복사
+  document.querySelectorAll('.court .bubble code').forEach(function (c) {
+    c.title = '눌러서 복사';
+    c.addEventListener('click', function () { copy(c.textContent, '명령을 복사했습니다.'); });
+  });
+
+  // 군령에는 「클로드 코드로 보내기」 단추
+  document.querySelectorAll('.court .order').forEach(function (o) {
+    var txt = (o.textContent || '').replace(/^\s*오늘의 군령\s*/, '').trim();
+    if (!txt) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'cc';
+    b.innerHTML = '<span class="ci">⌘</span> 클로드 코드로 보내기';
+    b.addEventListener('click', function () {
+      copy(txt + '\n\n이 일을 지금 해줘. 끝내면 무엇으로 확인했는지 알려줘.', '군령을 복사했습니다. 클로드 코드에 붙여넣으십시오.');
+      b.classList.add('done');
+      b.innerHTML = '<span class="ci">✓</span> 복사됨 — 붙여넣기';
+    });
+    o.parentNode.insertBefore(b, o.nextSibling);
+  });
+
   // 사이드바(모바일) — 커맨드 바와 같은 목록을 세운다
   var sb = document.getElementById('sb'), sbX = document.getElementById('sbX'), sbOpen = document.getElementById('sbOpen');
   function closeSb() { if (sb) { sb.classList.remove('on'); sbX.classList.remove('on'); } }
@@ -997,11 +1230,28 @@ body{
     st.appendChild(n);
   });
 
-  // 말풍선 끝에 ▼ 를 찍는다
+  // 말풍선 끝의 ▼ — 접힌 설명이 있으면 「자세히」 단추가 된다
   document.querySelectorAll('.court .bubble').forEach(function (b) {
-    var c = document.createElement('span');
-    c.className = 'cont';
-    c.textContent = '▼';
+    var more = b.querySelector('.more');
+    var c = document.createElement('button');
+    if (!more) {
+      var span = document.createElement('span');
+      span.className = 'cont';
+      span.textContent = '▼';
+      b.appendChild(span);
+      return;
+    }
+    c.type = 'button';
+    c.className = 'cont btn';
+    c.innerHTML = '<span class="ct">자세히</span><span class="cv">▼</span>';
+    c.setAttribute('aria-expanded', 'false');
+    c.addEventListener('click', function () {
+      var on = b.classList.toggle('open');
+      c.setAttribute('aria-expanded', on ? 'true' : 'false');
+      c.querySelector('.ct').textContent = on ? '접기' : '자세히';
+      blip(on ? 720 : 520);
+      if (!on) b.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
     b.appendChild(c);
   });
 
@@ -1089,24 +1339,6 @@ body{
     if (lead && !reduce) setTimeout(function () { typeLine(lead); }, 320);
   }
 
-  // 짧은 효과음. 풍악과 별개로 눌렀을 때만 난다.
-  var clickCtx = null;
-  function blip(freq) {
-    try {
-      var AC = window.AudioContext || window.webkitAudioContext;
-      if (!AC) return;
-      if (!clickCtx) clickCtx = new AC();
-      if (clickCtx.state === 'suspended') clickCtx.resume();
-      var t = clickCtx.currentTime, o = clickCtx.createOscillator(), g = clickCtx.createGain();
-      o.type = 'triangle'; o.frequency.setValueAtTime(freq || 780, t);
-      o.frequency.exponentialRampToValueAtTime((freq || 780) * 0.6, t + 0.09);
-      g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(0.09, t + 0.008);
-      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
-      o.connect(g); g.connect(clickCtx.destination);
-      o.start(t); o.stop(t + 0.16);
-    } catch (e) { }
-  }
 
   if (reduce || !('IntersectionObserver' in window)) {
     blocks.forEach(function (el) { el.classList.add('reveal', 'in'); });
