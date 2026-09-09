@@ -446,6 +446,42 @@ body{
   .bubble::before,.bubble::after{left:50% !important;transform:translateX(-50%)}
 }
 
+/* -- 어제 한 일 (회고) -------------------------------- */
+.retro{
+  margin:0 0 16px;padding:14px 16px 13px;
+  background:linear-gradient(180deg,rgba(47,107,90,.14),rgba(10,25,20,.30));
+  border:1px solid rgba(47,107,90,.45);border-left:4px solid var(--jade);
+  border-radius:0 8px 8px 0
+}
+.retro-t{
+  font-size:13px;letter-spacing:.10em;color:#8fd0b8;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:8px
+}
+.retro-t b{font-weight:800;color:#b8e6d2}
+.retro-d{font-size:12px;color:#9a9078;letter-spacing:.02em}
+.retro-s{margin:0 0 10px;font-size:15px;line-height:1.9;color:#e6dcc2}
+.retro-l{list-style:none;margin:0;padding:0}
+.retro-l li{
+  position:relative;padding:6px 0 6px 74px;
+  font-size:14.5px;line-height:1.85;color:#d8ceb2;
+  border-top:1px dashed rgba(122,97,23,.28)
+}
+.retro-l li:first-child{border-top:0}
+.retro-l li b{
+  position:absolute;left:0;top:6px;width:62px;
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;
+  text-align:center;padding:3px 0;border-radius:3px;
+  background:rgba(0,0,0,.35);border:1px solid rgba(122,97,23,.4);color:#d9c489
+}
+.retro-l .rg b{color:#7cc4ab;border-color:rgba(47,107,90,.6)}
+.retro-l .rb b{color:#e0917f;border-color:rgba(165,42,30,.6)}
+.retro-l .rf b{color:#e8cf7a;border-color:rgba(201,162,39,.55)}
+.retro-l .ri b{color:#9db8e0;border-color:rgba(90,120,170,.55)}
+@media (max-width:640px){
+  .retro-l li{padding:26px 0 6px 0}
+  .retro-l li b{position:static;display:inline-block;margin-bottom:2px}
+}
+
 /* ── 우선순위 목록 ─────────────────────────────────── */
 .pri{list-style:none;counter-reset:pri;margin:14px 0 0;padding:0}
 .pri li{
@@ -1021,7 +1057,7 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="intro-in">
     <div class="king-big"></div>
     <h1>동성왕 아침 브리핑</h1>
-    <div class="sub">2026년 9월 9일 (수) · 제 5 회</div>
+    <div class="sub">2026년 9월 9일 (수) · 제 7 회</div>
     <div class="rule"></div>
   </div>
 </div>
@@ -1037,7 +1073,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
     <button class="bgm" type="button" data-on="0" aria-pressed="false"><span class="dot"></span><span class="bgm-t">풍악</span></button>
     <div class="beam-date">
-      <b>2026년 9월 9일 (수)</b><br>병오년 9월 9일<br>제 5 회
+      <b>2026년 9월 9일 (수)</b><br>병오년 9월 9일<br>제 7 회
     </div>
   </div></div>
 
@@ -1079,7 +1115,7 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
       <div class="kstat">
         <span class="kn">지력</span>
-        <span class="kv">45<i class="kd up">&#9650; +15</i></span>
+        <span class="kv">45<i class="kd same">&#8211;</i></span>
         <div class="kbar"><i style="width:45%"></i></div>
         <span class="kdesc">아직 판정된 군령이 없습니다</span>
       </div>
@@ -1101,17 +1137,17 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="ev-t">오 늘 의 사 건</div>
       <div class="ev ev_grain"><span class="evbg"></span><span class="evi">🌾</span><span class="evt"><b>군량이 창고에서 썩고 있습니다</b><span>묶지 않은 파일이 120건입니다. 오늘 한 덩이로 커밋하시면 사라집니다.</span></span></div>
       <div class="ev ev_ruin"><span class="evbg"></span><span class="evi">🏚</span><span class="evt"><b>폐성이 있습니다</b><span>dental-geo-v2(147일), wp-multi-manager(15일), DW-GEO(31일) — 오래 비워두면 되찾는 값이 커집니다.</span></span></div>
-      <div class="ev ev_famine"><span class="evbg"></span><span class="evi">⚱</span><span class="evt"><b>사람들이 무서워합니다</b><span>금이 +1.13% 입니다. 불안한 돈이 금으로 갑니다.</span></span></div>
+      <div class="ev ev_famine"><span class="evbg"></span><span class="evi">⚱</span><span class="evt"><b>사람들이 무서워합니다</b><span>금이 +1.34% 입니다. 불안한 돈이 금으로 갑니다.</span></span></div>
 </div>
 
   <div class="court">
 <div class="board">
  <div class="board-t">형 세 판 · 전하의 오늘</div>
  <div class="stats">
-  <div class="stat good"><span class="lbl">연속 브리핑</span><span class="val">이틀째</span><div class="bar"><i style="width:28%"></i></div><span class="note">조회는 이틀째, 회차로는 다섯 번째입니다. 아직 습관이라 부르기엔 이릅니다.</span></div>
-  <div class="stat"><span class="lbl">어제 군령</span><span class="val">아직 시간 중</span><div class="bar"><i style="width:50%"></i></div><span class="note">내려진 지 반 시각입니다. 하루가 지나야 가릅니다. dental-site-kit 마지막 커밋은 9월 6일, 묶지 않은 파일 104개 그대로입니다.</span></div>
-  <div class="stat"><span class="lbl">주 전선</span><span class="val">씨클로치과 사이트</span><div class="bar"><i style="width:62%"></i></div><span class="note">jinsim-dental-copy 폴더. 오늘 09:57에 27개 하위 페이지와 llms.txt·sitemap이 새로 나왔습니다. 손이 닿은 유일한 곳입니다.</span></div>
-  <div class="stat"><span class="lbl">천하 기운</span><span class="val">보통</span><div class="bar"><i style="width:55%"></i></div><span class="note">코스피 +1.39%, 코스닥 +2.19%로 한국만 올랐습니다. 미국은 내리고 금·은은 올랐습니다.</span></div>
+  <div class="stat"><span class="lbl">연속 브리핑</span><span class="val">오늘 두 번째</span><div class="bar"><i style="width:20%"></i></div><span class="note">첫 통이 오후 3시 49분에 올랐습니다. 기록이 아직 이틀치도 못 됩니다.</span></div>
+  <div class="stat"><span class="lbl">어제 군령</span><span class="val">아직 시간 중</span><div class="bar"><i style="width:50%"></i></div><span class="note">내린 지 한 시각입니다. git 은 아직 없고 example.com 은 373에서 369로 넷 줄었습니다.</span></div>
+  <div class="stat good"><span class="lbl">주 전선</span><span class="val">Magic_Map</span><div class="bar"><i style="width:65%"></i></div><span class="note">오늘 12시 56분 PR 2번 병합. 어제 커밋 3건.</span></div>
+  <div class="stat good"><span class="lbl">천하 기운</span><span class="val">양호</span><div class="bar"><i style="width:70%"></i></div><span class="note">코스피가 33거래일 만에 7,000을 되찾았습니다.</span></div>
  </div>
 </div>
 
@@ -1122,15 +1158,15 @@ html,body{max-width:100%;overflow-x:hidden}
  </div>
  <div class="bubble">
   <span class="say">오늘 일정과 AI 소식</span>
-  <p class="lead">오늘은 잡힌 일정이 없습니다. 다만 내일 오후에 하나 있습니다.</p>
+  <p class="lead">오늘은 잡힌 일정이 없습니다. 대신 내일 오후가 비어 있지 않습니다.</p>
   <ul class="news">
-   <li><b>내일</b> 13:40~14:40 · 동성병원 <em>준비할 것: 알림이 10분 전 하나뿐입니다. 오늘 저녁에 챙길 것을 꺼내두시고, 내일 오전 일은 12시에 끊으십시오.</em></li>
+   <li><b>내일</b> 13:40~14:40 · 동성병원 <em>준비할 것: 오후가 통째로 날아갑니다. 내일 손댈 일은 오전에 몰아두세요.</em></li>
   </ul>
   <div class="sep"></div>
   <ul class="news">
-   <li><b>AI 마케팅</b> <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5IdVFaNXRUYVlScXZYbWpCQVIzSEJDX0Q2WVZLdG5kaExmSnBORW83bFZRUFJvdVJSbjFONTRmU05jekE3MG1QVG1Yd1NSdjdHSHl3?oc=5">스레드·네이버·빅테크 동시 행보… 9월 AI 광고시장 재편</a> — 스레드와 네이버가 같은 달에 AI 광고를 손보고 있습니다. <em>전하께 쓸 점: 동네보살 스레드 계정이 막혀 있는 동안에도 판은 움직입니다. 새 계정이 열리면 바로 올릴 원고를 지금 쌓아두십시오.</em></li>
-   <li><b>화제</b> <a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE1DVDAtdEdXOGhNMXA3WXljVS1yc29GQ3BETFJSWTFKVlRBaV9VOEx3NkpsNnlHSlJ2N0JpYVNaTUFtek5IUWJMV0gtVWlQSGZlVW5kbVp3?oc=5">90년간 풀지 못한 수학 난제, 오픈AI가 88시간 만에 풀었다</a> — 1만 개 AI를 한꺼번에 돌려 상금 100만 달러짜리 문제를 풀었다는 발표입니다. <em>전하께 쓸 점: 이 소식이 퍼지면 원장들이 「AI가 홈페이지도 만들어주지 않느냐」고 묻습니다. 답을 미리 한 문장으로 준비해 두십시오.</em></li>
-   <li><b>도구</b> <a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a> <b>(별 38만)</b> — 어떤 운영체제에서든 실제로 일을 대신 처리한다는 자동화 도구입니다. <em>전하께 쓸 점: 별 수가 가장 많다는 것 말고는 검증된 게 없습니다. 오늘 손댈 것은 아닙니다.</em></li>
+   <li><b>마케팅</b> <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBvSUxkUThGY2x5RWc1NkdiZzFHNjU1YTgxVHhyaVd2VjJpMXhVZWpmbUU1em1tdDdGaWdUVndRdDNRNF8zaE5jbndHeHZFNXBPQnhFRXBWMzdMTjhnWEgxczJhbjE?oc=5">플레이디, 네이버에 「애드인사이트」 공급</a> — 네이버 광고에 AI 특화 솔루션이 붙습니다. <em>전하께 쓸 점: 치과 광고를 손으로 돌리던 자리가 자동으로 넘어갑니다. 전하 값어치는 광고 집행이 아니라 사이트 쪽에 두세요.</em></li>
+   <li><b>화제</b> <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5IdVFaNXRUYVlScXZYbWpCQVIzSEJDX0Q2WVZLdG5kaExmSnBORW83bFZRUFJvdVJSbjFONTRmU05jekE3MG1QVG1Yd1NSdjdHSHl3?oc=5">스레드·네이버·빅테크 동시 행보, 9월 AI 광고시장 재편</a> — 세 곳이 같은 달에 움직였습니다. <em>전하께 쓸 점: 스레드 계정이 막혀 있는 동안 판이 바뀌고 있습니다. 새 핸들을 미루지 마세요.</em></li>
+   <li><b>도구</b> <a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a> <b>(별 38.9만)</b> — 운영체제를 가리지 않고 실제로 일을 시키는 에이전트입니다. <em>전하께 쓸 점: 지금 당장 쓰실 것은 아니나, 열 병원에 같은 작업을 반복할 때 이런 갈래를 기억해 두세요.</em></li>
   </ul>
  </div>
 </div>
@@ -1142,23 +1178,29 @@ html,body{max-width:100%;overflow-x:hidden}
  </div>
  <div class="bubble">
   <span class="say">클로드 코드를 부리는 법</span>
-  <p class="lead">만들었다는 말과 맞다는 말은 다릅니다. 오늘 아침에 나온 씨클로치과 파일에 example.com 이 373군데 남아 있습니다.</p>
+  <div class="retro">
+   <div class="retro-t"><b>어제 한 일</b><span class="retro-d">9월 8일 · Magic_Map</span></div>
+   <p class="retro-s">검색량을 실제로 받아와 키워드에 값을 매기는 기능을 붙이셨습니다. 이어서 반경 계산이 매번 다시 도는 것을 잘라내고, 화면을 지도 계기판처럼 손보셨습니다.</p>
+   <ul class="retro-l">
+    <li class="rg"><b>잘한 것</b> 성능을 깎는 일과 기능을 붙이는 일을 다른 커밋으로 나누셨습니다. 나중에 되돌릴 때 이 구분이 반나절을 살립니다.</li>
+    <li class="rb"><b>아쉬운 것</b> 세 커밋이 모두 자정에서 새벽 1시 39분 사이에 몰렸습니다.</li>
+    <li class="rf"><b>고칠 것</b> 마지막 커밋에 화면 손질과 반경 버그 수정이 함께 들어가 596줄이 움직였습니다. 보이는 것과 고치는 것은 나누세요.</li>
+    <li class="ri"><b>해볼 것</b> 사람들이 실제로 검색하는 지역 키워드를 뽑는 그 로직을, 치과 사이트 원고 제목에 그대로 붙여보세요.</li>
+   </ul>
+  </div>
+  <p class="lead">고치기 전에 계획만 받아보십시오. 어제 한 커밋에 596줄이 들어간 것은 손이 생각보다 먼저 나갔기 때문입니다.</p>
   <ol class="pri">
-   <li><strong>클로드가 파일을 만든 그 자리에서 grep 한 줄로 훑으십시오.</strong> 오늘 09:57에 나온 sitemap.xml·robots.txt·index.html 이 전부 없는 주소를 가리키고 있으니, 이대로 올리면 사이트 전체가 검색엔진에게 헛길을 안내합니다.</li>
-   <li><strong>일을 시킬 때 「끝냈으면 무엇으로 확인했는지 함께 적어라」를 붙이십시오.</strong> 확인한 방법을 적게 하면 확인하지 않고 끝냈다고 말하는 일이 눈에 띄게 줄어듭니다.</li>
-   <li><strong>자주 틀리는 자리는 검사 명령 한 줄로 남겨두십시오.</strong> 전하께서는 게이트를 남의 병원 주소에 돌려놓고 0건 통과를 받으신 적이 있으니, 오늘 것도 같은 갈래의 함정입니다.</li>
+   <li><strong>일을 시키기 전에 Shift+Tab 을 두 번 눌러 계획 모드로 들어가십시오.</strong> 이 모드에서 클로드는 파일을 고치지 못하고 계획만 내놓으니, 엉뚱한 자리를 헤집는 일이 애초에 생기지 않습니다.</li>
+   <li><strong>계획을 받으면 「어느 파일을 몇 줄」부터 보십시오.</strong> 어제 MagicMap.tsx 한 파일이 크게 움직였는데, 계획을 먼저 보셨다면 그것이 두 가지 일이라는 것을 시작 전에 아셨을 것입니다.</li>
+   <li><strong>씨클로치과 도메인 치환처럼 파일 수백 개가 걸린 일은 반드시 계획 모드로 여십시오.</strong> 369군데를 한 번에 바꾸는 일은 되돌리기 어려우니 이렇게 덧붙이세요. <code>고치지 말고 계획만 내놔라. 어느 파일을 몇 줄 고칠지, 되돌리는 법과 함께 적어라.</code></li>
   </ol>
-  <p>오늘 그대로 쓰실 것은 이 한 줄입니다.</p>
-  <p><code>grep -rn "example\.com" . --include="*.php" --include="*.xml" --include="*.txt" --include="*.html"</code></p>
   <div class="more">
-   <h4>왜 게이트가 아니라 grep 한 줄인가</h4>
-   <p>게이트는 크고 느립니다. 크면 돌리기 싫어지고, 돌리기 싫어지면 안 돌립니다. 게다가 게이트는 「어느 사이트를 보고 있는가」를 스스로 묻지 않으므로, 포트를 잘못 열어두면 남의 집을 검사하고 합격을 내줍니다. grep 은 지금 이 폴더만 봅니다. 틀릴 자리가 없습니다. 작은 검사는 실제로 돌아가기 때문에 큰 검사를 이깁니다.</p>
-   <h4>프롬프트에 붙일 한 줄</h4>
-   <p>클로드에게 일을 맡길 때 마지막에 이렇게 덧붙이십시오.</p>
-   <p><code>끝났다고 말하기 전에, 네가 만든 파일에서 example.com·localhost·TODO·더미 값을 직접 grep 해서 0건인 것을 보여줘. 0건이 아니면 고치고 다시 확인해.</code></p>
-   <p>핵심은 「확인해」가 아니라 「보여줘」입니다. 결과를 내보이라 하면 그제야 실제로 봅니다.</p>
-   <h4>오늘의 숫자가 말하는 것</h4>
-   <p>지력이 45로 올랐으나, 이는 어제 군령이 아직 판정되지 않아 셈에서 빠진 것일 뿐입니다. 올랐다고 적힌 수치를 그대로 믿는 것도 확인하지 않는 버릇입니다.</p>
+   <h4>왜 계획을 먼저 받으면 빨라지는가</h4>
+   <p>일이 잘못되는 자리는 대개 「무엇을 고칠까」에서 갈립니다. 손이 먼저 나가면 클로드는 자기가 고른 자리를 고치고, 전하는 다 고쳐진 뒤에야 그것이 원하던 자리가 아님을 아십니다. 그때는 이미 파일 다섯 개가 바뀌어 있어, 되돌리는 데 고친 시간만큼이 다시 듭니다. 계획은 글자입니다. 글자를 버리는 데는 시간이 들지 않습니다.</p>
+   <h4>계획 모드에서 물어볼 세 가지</h4>
+   <p>첫째, 건드릴 파일 목록. 여기에 뜻밖의 파일이 있으면 그 자리에서 막으십시오. 둘째, 되돌리는 방법. 「git 으로 되돌린다」는 답이 나오려면 저장소여야 하니, 이 물음 하나로 씨클로치과 폴더의 문제도 함께 드러납니다. 셋째, 어떻게 확인할 것인가. 계획 단계에서 확인 방법까지 받아두면, 일이 끝난 뒤 다시 물을 것이 없습니다.</p>
+   <h4>오늘의 숫자</h4>
+   <p>무력이 25입니다. 이레 동안 남은 커밋이 하나뿐인 탓입니다. 다만 오늘 12시 56분에 병합하신 것은 아직 이 셈에 들어오지 않았으니, 내일 아침에는 오를 것입니다. 정치가 72로 가장 높은 것은 서른 날을 놓고 보면 열 번 손대셨기 때문입니다. 전하는 꾸준하지 않은 것이 아니라, 몰아서 하시는 것입니다.</p>
   </div>
  </div>
 </div>
@@ -1169,9 +1211,9 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="nameplate">방통<span class="role">오늘의 군령</span></div>
  </div>
  <div class="bubble">
-  <p class="order-check"><b>어제의 군령</b> 킷 공용 파일 열 개를 한 덩이로 커밋하라. &nbsp;→&nbsp; <b>판정</b> 아직 시간 중입니다. 내린 지 반 시각이니 게으름으로 세지 않겠습니다. 다만 <code>git log -1</code> 은 여전히 9월 6일입니다.</p>
-  <p>공명의 말은 옳으나 셋은 많습니다. 게다가 신은 더 급한 것을 보았습니다 — 씨클로치과 폴더는 아직 git 저장소조차 아닙니다. 사흘치 손길이 되돌아갈 자리 없이 놓여 있습니다.</p>
-  <p class="order"><b>오늘의 군령</b> 씨클로치과 폴더에서 example.com 을 실제 도메인으로 바꾸고, <code>git init</code> 한 뒤 첫 커밋을 남기십시오. 도메인이 없으면 그것부터 정하십시오. 반 시각이면 끝납니다. 내일 <code>git -C jinsim-dental-copy log -1</code> 로 확인하겠습니다.</p>
+  <p class="order-check"><b>어제의 군령</b> 씨클로치과 폴더에서 example.com 을 실제 도메인으로 바꾸고 git init 한 뒤 첫 커밋을 남기라. &nbsp;→&nbsp; <b>판정</b> 아직 시간 중입니다. 내린 지 한 시각이니 셈하지 않겠습니다. 다만 지금 보니 <code>.git</code> 은 없고 example.com 은 369군데 남아 있습니다. 넷이 줄었습니다.</p>
+  <p>공명의 계획 모드는 옳습니다. 허나 계획을 세울 자리부터 없으면 소용이 없습니다. jinsim-dental-copy 는 오늘만 파일 34개가 바뀌었는데 되돌릴 데가 한 군데도 없습니다.</p>
+  <p class="order"><b>오늘의 군령</b> 도메인은 뒤로 미루십시오. jinsim-dental-copy 에서 <code>git init</code> 하고 지금 있는 그대로 한 덩이로 커밋하십시오. 열 자를 치면 끝납니다. 내일 <code>git -C jinsim-dental-copy log -1</code> 로 봅니다.</p>
  </div>
 </div>
 
@@ -1182,19 +1224,17 @@ html,body{max-width:100%;overflow-x:hidden}
  </div>
  <div class="bubble">
   <span class="say">전하의 사업과 삶</span>
-  <p class="lead">이름이 적히지 않은 일에는 값을 매길 수 없습니다. 지금 전하의 주 전선이 그렇습니다.</p>
+  <p class="lead">도구를 만드는 시간과 물건을 파는 시간은 다른 주머니에서 나옵니다. 요 며칠 전하는 도구 쪽에만 넣고 계십니다.</p>
   <ol class="pri">
-   <li><strong>씨클로치과가 수주된 일인지 오늘 한 줄로 적으십시오.</strong> 9월 7일부터 사흘을 쓰셨는데 계약일도 금액도 SPEC.md·DESIGN.md 어디에도 없고, 폴더 이름은 아직 남의 병원 이름을 달고 있습니다.</li>
-   <li><strong>내일 13:40 동성병원 일정이 있으니 오늘 밤에 일을 끊으십시오.</strong> 어제는 새벽 00:56과 아침 09:57에 파일이 바뀌었는데, 그렇게 이틀을 보내면 내일 오후에 쓸 기운이 남지 않습니다.</li>
-   <li><strong>이안치과 확답 요청은 오늘도 나가지 않았습니다.</strong> 9월 7일에 여섯 건을 걸어두고 사흘째이니, 원장 쪽에서는 이미 급하지 않은 일로 분류되었을 시간입니다.</li>
+   <li><strong>Magic_Map 이 파는 물건인지 쓰는 연장인지 오늘 한 줄로 적으십시오.</strong> 8일과 9일 이틀을 여기 쓰셨는데 어느 쪽인지 적힌 데가 없고, 적히지 않은 일에는 값을 매길 수도 그만둘 수도 없습니다.</li>
+   <li><strong>이안치과에 확답 요청 한 통을 오늘 보내십시오.</strong> 미결 목록을 적어두신 것이 9월 7일이니 이틀이 지났고, 기다리는 쪽이 재촉하지 않으면 병원은 먼저 답하지 않습니다.</li>
+   <li><strong>dental-geo-v2 를 오늘 살릴지 접을지 정하십시오.</strong> 147일 동안 손대지 않으셨고 미커밋 15건이 남아 있으니, 살릴 것이면 오늘 커밋하고 접을 것이면 폴더 이름 앞에 보관 표시를 다십시오.</li>
   </ol>
   <div class="more">
-   <h4>왜 이름표가 먼저인가</h4>
-   <p>신이 어제 같은 말씀을 올렸으나 오늘 다시 드리는 까닭은, 하루가 더 지나 사흘이 되었기 때문입니다. 폴더 이름이 jinsim-dental-copy 인데 안에 든 것은 수원 당수동 씨클로치과의원의 원고입니다. 진심을다하는치과는 참고한 원본일 뿐입니다. 이 상태로 두면 석 달 뒤 전하께서 이 폴더를 열고 「이게 누구 일이었지」 하고 십 분을 씁니다. 더 나쁜 것은, 값을 청구할 때 근거가 없다는 점입니다. 폴더 이름을 ciclo-dental 로 바꾸고 SPEC.md 맨 위에 계약 여부·날짜·금액 세 줄만 적으시면 끝나는 일입니다.</p>
-   <h4>돈의 순서</h4>
-   <p>이안치과는 돈이 가장 가까운 곳입니다. 라이브가 이미 그 테마로 돌아가고 있고 남은 것은 전하의 손이 아니라 원장의 회신입니다. 회신은 재촉하지 않으면 오지 않습니다. <code>clinics/이안치과/미결.md</code> 를 그대로 옮겨 담아 한 통 보내는 데 십 분이면 됩니다. 씨클로에 쓰는 사흘보다 이 십 분이 먼저 돈이 됩니다.</p>
-   <h4>정치 72, 무력 25</h4>
-   <p>전하의 가장 높은 능력은 정치 72입니다. 판을 벌이고 문서를 짜는 재주는 이미 갖추셨습니다. 가장 낮은 것은 무력 25, 이레 동안 커밋이 한 번뿐인 탓입니다. 전하께 모자란 것은 생각이 아니라 마무리입니다. 그러니 오늘 새 문서를 쓰지 마시고, 이미 쓴 것에 세 줄만 보태십시오.</p>
+   <h4>숫자로 본 오늘</h4>
+   <p>전하가 지금 손대고 계신 곳은 셋입니다. Magic_Map은 오늘 병합까지 마쳤으니 살아 있고, 씨클로치과는 사흘째 손이 가고 있으나 저장소가 아니며, 나머지 여덟 저장소는 보름 넘게 조용합니다. 서른 날 커밋이 열 건인데 그중 아홉이 Magic_Map 하나에 몰려 있습니다.</p>
+   <h4>왜 이름부터인가</h4>
+   <p>전하는 혼자 일하십니다. 혼자 일하는 사람의 가장 큰 손실은 잘못 만든 것이 아니라, 만든 것이 무엇이었는지 석 달 뒤에 모르는 것입니다. dental-geo-v2가 147일 멈춘 것도 그 탓입니다. 나쁜 물건이어서가 아니라, 그것이 무엇을 위한 것이었는지 적혀 있지 않아 다시 열 이유를 찾지 못하신 것입니다. 오늘 Magic_Map에 한 줄을 적어두시면 147일 뒤의 전하가 그 시간을 아낍니다.</p>
   </div>
  </div>
 </div>
@@ -1204,7 +1244,7 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="medal"><span class="han">봉효</span></div>
   <div class="nameplate">곽가<span class="role">반론</span></div>
  </div>
- <div class="bubble"><p>문약이 오늘 밤 일찍 접으라 했습니다. 신은 반대입니다. 없는 주소 373군데가 하룻밤을 넘기면 내일은 병원에 다녀오느라 손도 못 댑니다. 잠은 내일 오후에 주무셔도 되나 저것은 오늘 아니면 사흘 뒤입니다. 문약은 언제나 「내일 하십시오」라 합니다. 그 말로 dental-geo-v2 가 147일을 잤습니다. 두 말 중 하나는 전하께서 고르십시오 — 신은 오늘 밤을 걸겠습니다.</p></div>
+ <div class="bubble"><p>문약은 dental-geo-v2를 접으라 합니다. 147일이라는 숫자만 보고 하는 말입니다. 오늘 초선이 전할 소식을 먼저 들어보십시오. 네이버가 AI 광고에 문을 열었습니다. AI가 무엇을 읽고 무엇을 인용하는지 재는 물건은 지금부터 값이 오릅니다. 접을 것은 그것이 아닙니다. 이름조차 정하지 못한 쪽을 접으십시오.</p></div>
 </div>
 
 <div class="who c-diaochan">
@@ -1215,12 +1255,12 @@ html,body{max-width:100%;overflow-x:hidden}
  <div class="bubble">
   <span class="say">천하의 소식</span>
   <ul class="news">
-   <li><b>국내</b> 코스피가 7,051로 1.39% 올라 7,000선에 앉았고 코스닥은 2.19% 뛰었습니다. 외국인이 1,867억, 기관이 7,402억을 사들였습니다. <em>초선의 생각: 산 것은 반도체입니다. 장이 좋다는 말에 마음이 들뜨면 손이 흩어지니, 오늘은 화면을 닫아두시는 편이 낫습니다.</em></li>
-   <li><b>국내</b> 원/달러가 1,336원까지 내려 원화가 빠르게 세졌습니다. <em>초선의 생각: 수입 장비값이 싸집니다. 원장들이 장비를 들일 마음이 생기는 때이고, 장비를 들이면 그것을 알릴 자리도 필요해집니다. 제안서에 넣을 각입니다.</em></li>
-   <li><b>국내</b> 국내 금 소매가는 오히려 내렸습니다. 순금 3.75g 파실 때 70만5천원으로 9천원 내렸습니다. <em>초선의 생각: 국제 금값은 올랐는데 국내 값은 내렸습니다. 환율이 그 차이를 먹은 것입니다. 숫자는 어느 자리에서 재느냐로 달라집니다.</em></li>
-   <li><b>세계</b> 달러지수가 99 아래로 떨어져 두 주 만에 가장 낮습니다. 연준이 금리를 올릴 것이라는 기대가 커졌는데도 달러가 약해졌습니다. <em>초선의 생각: 금리보다 믿음이 먼저입니다. 값을 정하는 것은 셈이 아니라 사람들의 마음이라는 뜻입니다.</em></li>
-   <li><b>세계</b> 미국의 나라 살림이 버틸 수 있느냐는 의문이 8월 말부터 달러를 누르고 있습니다. <em>초선의 생각: 가장 큰 나라도 곳간 사정을 의심받습니다. 전하처럼 빚 없이 혼자 하는 일이 이런 때에 흔들리지 않습니다.</em></li>
-   <li><b>세계</b> S&amp;P500이 0.58%, 나스닥이 0.32% 내렸습니다. 이번 주 내내 뒷걸음입니다. <em>초선의 생각: 한국만 오르고 미국은 내렸습니다. 이런 어긋남은 오래가지 않으니, 오른 쪽을 보고 판단을 바꾸지 마십시오.</em></li>
+   <li><b>국내</b> 코스피가 97포인트 올라 7,051에 마쳤습니다. 33거래일 만의 7,000선 회복이고, 외국인과 기관이 함께 샀습니다. <em>초선의 생각: 돈이 다시 들어오는 때는 병원도 지갑을 엽니다. 견적을 미뤄두신 곳이 있다면 이번 주가 낫습니다.</em></li>
+   <li><b>국내</b> 원·달러 환율이 9원 50전 내려 1,336원에 마쳤습니다. 달러가 약해지고 외국인 돈이 들어온 덕입니다. <em>초선의 생각: 달러로 내시는 API 값이 한 달 새 가벼워졌습니다. 지금이 쓰기 좋은 때입니다.</em></li>
+   <li><b>국내</b> 플레이디가 네이버에 AI 광고 솔루션을 넣고, 아프리카개발은행의 AI 허브도 한국에 섭니다. <em>초선의 생각: 나라가 AI 쪽으로 돈을 옮기고 있습니다. 치과 홈페이지에 「AI가 읽는 구조」를 얹는 값을 따로 매기실 때입니다.</em></li>
+   <li><b>세계</b> 유럽중앙은행이 목요일에 금리를 2.50%로 올릴 것으로 봅니다. 미국 연준도 이번 달 인상 가능성이 68%까지 올랐습니다. <em>초선의 생각: 돈값이 오르면 큰 계약이 늦어집니다. 작고 빠른 건을 여럿 잡으십시오.</em></li>
+   <li><b>세계</b> 브렌트유가 배럴당 98달러를 넘었습니다. 미군이 이란 유조선 셋을 친 뒤입니다. <em>초선의 생각: 기름값은 몇 달 뒤 물가로 옵니다. 올해 안에 받을 돈은 올해 안에 받으십시오.</em></li>
+   <li><b>세계</b> 구리가 런던에서 톤당 14,540달러로 사상 최고를 찍었습니다. <em>초선의 생각: 세계가 아직 무언가를 짓고 있다는 뜻입니다. 불안과 건설이 함께 오는 드문 때입니다.</em></li>
   </ul>
  </div>
 </div>
@@ -1230,7 +1270,7 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="medal"><span class="han">공근</span></div>
   <div class="nameplate">주유<span class="role">경쟁·판세</span></div>
  </div>
- <div class="bubble"><p>공명은 검사하는 법을 말하겠으나, 신은 값을 말하겠습니다. 오늘 오픈AI가 90년 묵은 수학 문제를 88시간에 풀었다 합니다. 이 소식은 반드시 원장들 귀에 들어갑니다. 그러면 「AI가 다 해준다는데 왜 돈을 드리오」라는 말이 나옵니다. 값을 깎아 막으면 지는 싸움입니다. AI는 수원 당수동에 무엇이 있는지 모릅니다. 전하가 파는 것은 만드는 재주가 아니라 그 동네를 아는 값입니다.</p></div>
+ <div class="bubble"><p>공명은 천천히 계획하라 하겠으나, 판은 기다려주지 않습니다. 네이버가 AI 광고 솔루션을 받아들였습니다. 치과 광고를 사람 손으로 돌리던 대행사들은 올해 안에 값을 절반으로 내리거나 문을 닫습니다. 전하의 값어치는 사이트를 만드는 손에 있지 않습니다. 그 사이트가 AI에게 읽히도록 짜는 머리에 있습니다. 견적서에 그 줄을 따로 세우십시오.</p></div>
 </div>
 
 <div class="who c-mengde">
@@ -1240,28 +1280,26 @@ html,body{max-width:100%;overflow-x:hidden}
  </div>
  <div class="bubble">
   <span class="say">오늘의 시세</span>
-  <p>위나라 사람이 촉의 조회에 앉아 숫자를 읊는 것도 우스운 노릇이나, 재화에는 국경이 없으니 하겠소. 오늘은 갈렸소 — 한국 장은 오르고 미국 장은 내렸으며, 금·은·구리가 모두 올랐소. 달러가 약해진 것이 그 한가운데 있소. 그대는 달러도 금도 가진 게 없으니 어느 쪽이 오르든 구경이나 하시오.</p>
-
-<div class="mkt-wrap">
- <table class="mkt">
-  <thead><tr><th>품목</th><th>시세</th><th>등락</th><th>한 달 흐름</th><th>맹덕의 말</th></tr></thead>
-  <tbody>
-<tr><td>비트코인</td><td>79,162.21</td><td class="up">▲ +0.06%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.1 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.1" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="6.1" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">0.06%면 움직이지 않았다는 뜻이오. 겁먹은 돈은 금으로 갔지 이리로 오지 않았소. 그대 지갑엔 어차피 없으니 남 이야기요.</td></tr>
-<tr><td>이더리움</td><td>2,499.94</td><td class="up">▲ +0.36%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.6 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.6" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.6" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">비트코인을 따라만 다니오. 스스로 값을 만들지 못하는 것은 언제나 뒤에 서오.</td></tr>
-<tr><td>리플</td><td>1.437</td><td class="up">▲ +2.82%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,6.9 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,6.9" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="6.9" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">홀로 2.82% 뛰었소. 작은 것일수록 크게 뛰오. 뛴 것은 값이지 무게가 아니오.</td></tr>
-<tr><td>S&P500</td><td>7,673.52</td><td class="down">▼ -0.58%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,9.6 8.2,13.1 13.4,10.2 18.6,3.0 23.8,4.9 29.0,10.7 34.2,18.4 39.4,16.0 44.6,25.6 49.8,20.9 55.0,23.9 60.2,20.4 65.4,20.7 70.6,12.7 75.8,15.5 81.0,19.2 86.2,27.0 91.4,22.0 96.6,10.3 101.8,14.5 107.0,21.0 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,9.6 8.2,13.1 13.4,10.2 18.6,3.0 23.8,4.9 29.0,10.7 34.2,18.4 39.4,16.0 44.6,25.6 49.8,20.9 55.0,23.9 60.2,20.4 65.4,20.7 70.6,12.7 75.8,15.5 81.0,19.2 86.2,27.0 91.4,22.0 96.6,10.3 101.8,14.5 107.0,21.0" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="21.0" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">금리가 오를지 모른다는 말 하나에 이만치 물러섰소. 미국 장은 이번 주 내내 뒷걸음이오.</td></tr>
-<tr><td>나스닥</td><td>26,421.41</td><td class="down">▼ -0.32%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="14.1" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">빚으로 크는 것이 먼저 멈추오. 기술주가 바로 그러하오.</td></tr>
-<tr><td>코스피</td><td>7,051.07</td><td class="up">▲ +1.39%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,25.5 12.9,18.1 17.9,10.6 22.8,5.3 27.8,8.8 32.7,21.5 37.7,9.3 42.6,7.4 47.6,14.3 52.5,12.8 57.5,10.8 62.4,7.4 67.4,11.4 72.3,10.4 77.3,9.9 82.2,18.6 87.2,18.1 92.1,14.6 97.1,4.8 102.0,6.1 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,25.5 12.9,18.1 17.9,10.6 22.8,5.3 27.8,8.8 32.7,21.5 37.7,9.3 42.6,7.4 47.6,14.3 52.5,12.8 57.5,10.8 62.4,7.4 67.4,11.4 72.3,10.4 77.3,9.9 82.2,18.6 87.2,18.1 92.1,14.6 97.1,4.8 102.0,6.1 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">외국인과 기관이 함께 샀소. 원화가 싸 보였던 게요. 반도체가 끌어올린 것이지 그대의 업이 오른 것은 아니오.</td></tr>
-<tr><td>코스닥</td><td>829.69</td><td class="up">▲ +2.19%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,14.3 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,14.3" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="14.3" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">2.19%. 큰 장이 오르면 작은 장이 더 오르오. 내릴 때도 그리 되는 것을 잊지 마시오.</td></tr>
-<tr><td>원/달러</td><td>1,336.22</td><td class="down">▼ -0.55%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,3.0 8.0,4.5 12.9,3.3 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.3 42.6,10.8 47.6,12.6 52.5,13.8 57.5,13.6 62.4,13.0 67.4,13.9 72.3,14.9 77.3,18.0 82.2,16.2 87.2,20.4 92.1,21.3 97.1,24.4 102.0,24.8 107.0,27.0 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,3.0 8.0,4.5 12.9,3.3 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.3 42.6,10.8 47.6,12.6 52.5,13.8 57.5,13.6 62.4,13.0 67.4,13.9 72.3,14.9 77.3,18.0 82.2,16.2 87.2,20.4 92.1,21.3 97.1,24.4 102.0,24.8 107.0,27.0" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="27.0" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">1,336원까지 내렸소. 달러지수가 99 아래로 떨어진 탓이오. 수입 장비값이 싸지니 원장들 견적이 조금 가벼워지오.</td></tr>
-<tr><td>금 (온스)</td><td>4,443.60</td><td class="up">▲ +1.13%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,25.9 8.0,24.1 12.9,22.0 17.9,25.7 22.8,24.3 27.8,21.3 32.7,25.5 37.7,15.4 42.6,13.2 47.6,4.4 52.5,3.0 57.5,3.2 62.4,6.5 67.4,5.5 72.3,16.3 77.3,20.2 82.2,27.0 87.2,25.5 92.1,15.2 97.1,20.3 102.0,23.2 107.0,19.2 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,25.9 8.0,24.1 12.9,22.0 17.9,25.7 22.8,24.3 27.8,21.3 32.7,25.5 37.7,15.4 42.6,13.2 47.6,4.4 52.5,3.0 57.5,3.2 62.4,6.5 67.4,5.5 72.3,16.3 77.3,20.2 82.2,27.0 87.2,25.5 92.1,15.2 97.1,20.3 102.0,23.2 107.0,19.2" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="19.2" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">사상 최고 언저리요. 종이로 된 약속을 못 믿겠다는 사람이 늘었다는 뜻이오.</td></tr>
-<tr><td>은 (온스)</td><td>67.340</td><td class="up">▲ +1.57%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,21.9 8.0,23.4 12.9,20.0 17.9,23.0 22.8,22.5 27.8,17.5 32.7,27.0 37.7,19.2 42.6,9.3 47.6,3.0 52.5,7.0 57.5,6.6 62.4,9.4 67.4,3.2 72.3,13.7 77.3,17.1 82.2,24.1 87.2,23.6 92.1,13.8 97.1,17.9 102.0,16.8 107.0,12.2 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,21.9 8.0,23.4 12.9,20.0 17.9,23.0 22.8,22.5 27.8,17.5 32.7,27.0 37.7,19.2 42.6,9.3 47.6,3.0 52.5,7.0 57.5,6.6 62.4,9.4 67.4,3.2 72.3,13.7 77.3,17.1 82.2,24.1 87.2,23.6 92.1,13.8 97.1,17.9 102.0,16.8 107.0,12.2" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="12.2" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">금보다 더 올랐소. 은은 공장에서도 쓰이니 겁과 쓸모가 겹쳐 밀어 올렸소.</td></tr>
-<tr><td>구리 (파운드)</td><td>6.790</td><td class="up">▲ +0.76%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,17.2 8.0,15.9 12.9,17.0 17.9,17.4 22.8,16.9 27.8,16.5 32.7,25.4 37.7,25.0 42.6,27.0 47.6,18.3 52.5,16.9 57.5,8.9 62.4,17.2 67.4,17.8 72.3,19.6 77.3,17.3 82.2,23.6 87.2,24.0 92.1,18.5 97.1,17.0 102.0,6.7 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,17.2 8.0,15.9 12.9,17.0 17.9,17.4 22.8,16.9 27.8,16.5 32.7,25.4 37.7,25.0 42.6,27.0 47.6,18.3 52.5,16.9 57.5,8.9 62.4,17.2 67.4,17.8 72.3,19.6 77.3,17.3 82.2,23.6 87.2,24.0 92.1,18.5 97.1,17.0 102.0,6.7 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">0.76% 올랐소. 공장이 아직 돌고 있다는 신호요. 세상이 무너지는 중은 아니오.</td></tr>
-  </tbody>
- </table>
-</div>
-<div class="mkt-note">야후 파이낸스에서 직접 받은 값 · 2026-09-09 15:17 기준. 그래프는 최근 한 달 종가다. 찾지 못한 값은 「조회 실패」라 적을 뿐, 꾸며내지 않소.</div>
-  <div class="mkt-note">야후 파이낸스 · 기준시각 2026-09-09 15:27 (지수는 06:00~15:07)</div>
+  <p>코스피가 7,000을 되찾고 코스닥은 2.28% 올랐소. 그대의 나라가 오랜만에 웃는 날이오. 다만 금과 은이 함께 오른 것을 눈에 담아두시오. 사람들이 웃으면서 뒤로는 무서워한다는 뜻이니.</p>
+  <div class="mkt-wrap">
+   <table class="mkt">
+    <thead><tr><th>품목</th><th>시세</th><th>등락</th><th>한 달 흐름</th><th>맹덕의 말</th></tr></thead>
+    <tbody>
+<tr><td>비트코인</td><td>79,215.01</td><td class="up">▲ +0.99%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,19.5 12.9,8.9 17.9,11.4 22.8,10.0 27.8,7.6 32.7,8.4 37.7,7.5 42.6,5.0 47.6,9.9 52.5,9.0 57.5,10.2 62.4,8.4 67.4,10.7 72.3,10.9 77.3,3.0 82.2,6.2 87.2,5.9 92.1,4.8 97.1,7.3 102.0,8.7 107.0,7.1 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,19.5 12.9,8.9 17.9,11.4 22.8,10.0 27.8,7.6 32.7,8.4 37.7,7.5 42.6,5.0 47.6,9.9 52.5,9.0 57.5,10.2 62.4,8.4 67.4,10.7 72.3,10.9 77.3,3.0 82.2,6.2 87.2,5.9 92.1,4.8 97.1,7.3 102.0,8.7 107.0,7.1" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="7.1" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">한 달째 누워 있소. 값이 아니라 시간이 녹고 있소.</td></tr>
+<tr><td>이더리움</td><td>2,509.77</td><td class="up">▲ +1.00%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,20.2 12.9,3.0 17.9,11.3 22.8,7.7 27.8,6.0 32.7,9.6 37.7,3.8 42.6,3.4 47.6,9.6 52.5,8.2 57.5,11.9 62.4,7.4 67.4,11.9 72.3,14.3 77.3,3.7 82.2,8.4 87.2,6.1 92.1,3.1 97.1,5.2 102.0,5.8 107.0,3.5 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,20.2 12.9,3.0 17.9,11.3 22.8,7.7 27.8,6.0 32.7,9.6 37.7,3.8 42.6,3.4 47.6,9.6 52.5,8.2 57.5,11.9 62.4,7.4 67.4,11.9 72.3,14.3 77.3,3.7 82.2,8.4 87.2,6.1 92.1,3.1 97.1,5.2 102.0,5.8 107.0,3.5" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.5" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">비트코인을 그림자처럼 따라가오. 스스로 가는 힘이 없소.</td></tr>
+<tr><td>리플</td><td>1.439</td><td class="up">▲ +1.62%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,17.6 12.9,6.9 17.9,6.4 22.8,3.0 27.8,5.5 32.7,8.1 37.7,8.7 42.6,7.0 47.6,11.0 52.5,10.2 57.5,12.3 62.4,11.2 67.4,12.8 72.3,12.9 77.3,7.1 82.2,10.1 87.2,9.3 92.1,8.7 97.1,10.1 102.0,9.1 107.0,7.8 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,17.6 12.9,6.9 17.9,6.4 22.8,3.0 27.8,5.5 32.7,8.1 37.7,8.7 42.6,7.0 47.6,11.0 52.5,10.2 57.5,12.3 62.4,11.2 67.4,12.8 72.3,12.9 77.3,7.1 82.2,10.1 87.2,9.3 92.1,8.7 97.1,10.1 102.0,9.1 107.0,7.8" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="7.8" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">셋 중 가장 가벼우니 가장 먼저 튀오.</td></tr>
+<tr><td>S&P500</td><td>7,673.52</td><td class="down">▼ -0.58%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,9.6 8.2,13.1 13.4,10.2 18.6,3.0 23.8,4.9 29.0,10.7 34.2,18.4 39.4,16.0 44.6,25.6 49.8,20.9 55.0,23.9 60.2,20.4 65.4,20.7 70.6,12.7 75.8,15.5 81.0,19.2 86.2,27.0 91.4,22.0 96.6,10.3 101.8,14.5 107.0,21.0 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,9.6 8.2,13.1 13.4,10.2 18.6,3.0 23.8,4.9 29.0,10.7 34.2,18.4 39.4,16.0 44.6,25.6 49.8,20.9 55.0,23.9 60.2,20.4 65.4,20.7 70.6,12.7 75.8,15.5 81.0,19.2 86.2,27.0 91.4,22.0 96.6,10.3 101.8,14.5 107.0,21.0" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="21.0" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">연준이 이달에 올릴 셈이라는 말에 물러섰소.</td></tr>
+<tr><td>나스닥</td><td>26,421.41</td><td class="down">▼ -0.32%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,8.8 8.2,13.4 13.4,9.3 18.6,3.0 23.8,5.2 29.0,7.6 34.2,18.0 39.4,16.8 44.6,24.5 49.8,21.2 55.0,27.0 60.2,22.0 65.4,22.6 70.6,10.6 75.8,14.7 81.0,15.6 86.2,23.5 91.4,20.1 96.6,9.4 101.8,11.6 107.0,14.1" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="14.1" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">금리가 오르면 먼 미래를 파는 곳이 먼저 아프오.</td></tr>
+<tr><td>코스피</td><td>7,051.64</td><td class="up">▲ +1.40%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,25.5 12.9,18.1 17.9,10.6 22.8,5.4 27.8,8.8 32.7,21.5 37.7,9.4 42.6,7.4 47.6,14.3 52.5,12.9 57.5,10.8 62.4,7.4 67.4,11.4 72.3,10.4 77.3,9.9 82.2,18.6 87.2,18.1 92.1,14.6 97.1,4.8 102.0,6.1 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,25.5 12.9,18.1 17.9,10.6 22.8,5.4 27.8,8.8 32.7,21.5 37.7,9.4 42.6,7.4 47.6,14.3 52.5,12.9 57.5,10.8 62.4,7.4 67.4,11.4 72.3,10.4 77.3,9.9 82.2,18.6 87.2,18.1 92.1,14.6 97.1,4.8 102.0,6.1 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">33거래일 만의 7,000이오. 외국인과 기관이 함께 샀소.</td></tr>
+<tr><td>코스닥</td><td>830.37</td><td class="up">▲ +2.28%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,14.1 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,6.3 8.0,5.2 12.9,4.9 17.9,4.1 22.8,3.0 27.8,12.8 32.7,16.0 37.7,10.7 42.6,23.2 47.6,19.5 52.5,15.1 57.5,15.2 62.4,11.7 67.4,11.5 72.3,12.8 77.3,17.0 82.2,22.6 87.2,27.0 92.1,19.5 97.1,16.7 102.0,20.0 107.0,14.1" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="14.1" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">오늘 표에서 가장 크게 올랐소. 작은 배가 먼저 도오.</td></tr>
+<tr><td>원/달러</td><td>1,334.82</td><td class="down">▼ -0.65%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,3.0 8.0,4.5 12.9,3.2 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.1 42.6,10.7 47.6,12.4 52.5,13.6 57.5,13.4 62.4,12.8 67.4,13.7 72.3,14.7 77.3,17.7 82.2,15.9 87.2,20.1 92.1,21.0 97.1,24.0 102.0,24.5 107.0,27.0 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,3.0 8.0,4.5 12.9,3.2 17.9,3.1 22.8,3.6 27.8,3.8 32.7,4.1 37.7,11.1 42.6,10.7 47.6,12.4 52.5,13.6 57.5,13.4 62.4,12.8 67.4,13.7 72.3,14.7 77.3,17.7 82.2,15.9 87.2,20.1 92.1,21.0 97.1,24.0 102.0,24.5 107.0,27.0" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="27.0" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">한 달째 내려가는 그림이오. 달러로 내는 값이 가벼워졌소.</td></tr>
+<tr><td>금 (온스)</td><td>4,452.80</td><td class="up">▲ +1.34%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,25.9 8.0,24.1 12.9,22.0 17.9,25.7 22.8,24.3 27.8,21.3 32.7,25.5 37.7,15.4 42.6,13.2 47.6,4.4 52.5,3.0 57.5,3.2 62.4,6.5 67.4,5.5 72.3,16.3 77.3,20.2 82.2,27.0 87.2,25.5 92.1,15.2 97.1,20.3 102.0,23.2 107.0,18.4 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,25.9 8.0,24.1 12.9,22.0 17.9,25.7 22.8,24.3 27.8,21.3 32.7,25.5 37.7,15.4 42.6,13.2 47.6,4.4 52.5,3.0 57.5,3.2 62.4,6.5 67.4,5.5 72.3,16.3 77.3,20.2 82.2,27.0 87.2,25.5 92.1,15.2 97.1,20.3 102.0,23.2 107.0,18.4" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="18.4" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">기름과 전쟁 소식이 겹쳤소. 무서울 때 사는 물건이오.</td></tr>
+<tr><td>은 (온스)</td><td>67.570</td><td class="up">▲ +1.92%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,21.9 8.0,23.4 12.9,20.0 17.9,23.0 22.8,22.5 27.8,17.5 32.7,27.0 37.7,19.2 42.6,9.3 47.6,3.0 52.5,7.0 57.5,6.6 62.4,9.4 67.4,3.2 72.3,13.7 77.3,17.1 82.2,24.1 87.2,23.6 92.1,13.8 97.1,17.9 102.0,16.8 107.0,11.2 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,21.9 8.0,23.4 12.9,20.0 17.9,23.0 22.8,22.5 27.8,17.5 32.7,27.0 37.7,19.2 42.6,9.3 47.6,3.0 52.5,7.0 57.5,6.6 62.4,9.4 67.4,3.2 72.3,13.7 77.3,17.1 82.2,24.1 87.2,23.6 92.1,13.8 97.1,17.9 102.0,16.8 107.0,11.2" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="11.2" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">금보다 더 뛰었소. 무서움만이 아니라 공장도 은을 먹고 있소.</td></tr>
+<tr><td>구리 (파운드)</td><td>6.797</td><td class="up">▲ +0.85%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,17.4 8.0,16.2 12.9,17.2 17.9,17.5 22.8,17.1 27.8,16.7 32.7,25.4 37.7,25.0 42.6,27.0 47.6,18.5 52.5,17.1 57.5,9.2 62.4,17.4 67.4,17.9 72.3,19.7 77.3,17.5 82.2,23.7 87.2,24.1 92.1,18.7 97.1,17.2 102.0,7.1 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,17.4 8.0,16.2 12.9,17.2 17.9,17.5 22.8,17.1 27.8,16.7 32.7,25.4 37.7,25.0 42.6,27.0 47.6,18.5 52.5,17.1 57.5,9.2 62.4,17.4 67.4,17.9 72.3,19.7 77.3,17.5 82.2,23.7 87.2,24.1 92.1,18.7 97.1,17.2 102.0,7.1 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">런던에서 사상 최고를 찍었소. 세계가 아직 짓고 있다는 뜻이오.</td></tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="mkt-note">야후 파이낸스에서 직접 받은 값 · 2026-09-09 16:41 기준. 그래프는 최근 한 달 종가다. 찾지 못한 값은 「조회 실패」라 적을 뿐, 꾸며내지 않소.</div>
  </div>
 </div>
 
@@ -1273,12 +1311,12 @@ html,body{max-width:100%;overflow-x:hidden}
  <div class="bubble">
   <span class="say">오늘 새길 옛말</span>
   <div class="classic">
-   <div class="han">Too much airplane for one man to fly</div>
-   <div class="rd">한 사람이 몰기에는 너무 큰 비행기다</div>
-   <div class="src">1935년 보잉 모델 299 추락 뒤 신문에 실린 말 · 체크리스트가 태어난 자리</div>
+   <div class="han">planum</div>
+   <div class="rd">계획이란, 짓기 전에 바닥에 그려본 것이다</div>
+   <div class="src">라틴어 planum(평평한 바닥) · 프랑스어 plan 을 거쳐 17세기 영어로 들어온 말</div>
    <div class="exp">
-    <p>1935년 10월 30일, 오하이오 라이트 비행장에서 보잉의 새 폭격기가 이륙 직후 곤두박질쳐 불탔습니다. 몰던 사람은 그 부대에서 가장 잘 나는 시험 비행사였습니다. 기계 결함이 아니었습니다. 지상에서 날개를 묶어두는 잠금장치를 푸는 것을 잊었을 뿐입니다. 신문은 「한 사람이 몰기에는 너무 큰 비행기」라 적었습니다. 그때 조종사들이 내놓은 답은 더 많은 훈련이 아니었습니다. 카드 한 장에 이륙 전 확인할 것을 적어 매번 소리 내어 읽기로 한 것입니다. 그 비행기는 뒤에 B-17이 되어 180만 마일을 사고 없이 날았습니다.</p>
-    <p>가장 잘 아는 사람이 가장 쉬운 것을 빠뜨립니다. 오늘 공명이 말한 example.com 373군데도 실력이 모자라 생긴 것이 아니라, 확인하는 절차가 없어 생긴 것입니다. 카드 한 장이 훈련보다 낫습니다. 사원이 내린 군령도 결국 그 카드의 첫 줄입니다. 맹덕은 재화에 밝으나 사람이 왜 떨어지는지는 모릅니다. 겁이 아니라 목록이 없어서 떨어집니다.</p>
+    <p>17세기 프랑스의 건축가들은 건물을 세우기 전에 땅바닥에 실물 크기로 윤곽을 그렸습니다. 돌 하나 올리기 전에 흙 위를 걸어 방의 크기를 재보고, 문이 어느 쪽으로 열리는지 직접 밟아봤습니다. 그 바닥 그림을 「plan」이라 불렀고, 그것이 오늘날 계획이라는 말의 뿌리입니다. 틀리면 흙을 쓸면 그만이었습니다. 돌을 쌓은 뒤에 알았다면 그 벽을 다시 허물어야 했습니다.</p>
+    <p>공명이 오늘 말한 계획 모드가 그 흙바닥입니다. 파일을 고치기 전에 무엇을 고칠지만 받아보는 일입니다. 어제 전하는 새벽에 596줄을 한 번에 올리셨습니다. 벽부터 쌓으신 것입니다. 오늘 방통이 명한 첫 커밋도 같은 이치입니다. 되돌아갈 바닥을 먼저 깔아두는 일입니다. 맹덕은 재화에 밝으나 짓는 일을 모릅니다. 오르내리는 숫자는 오늘 밤이면 바뀌지만, 바닥은 한 번 잘못 깔면 끝까지 갑니다.</p>
    </div>
   </div>
  </div>
@@ -1729,130 +1767,104 @@ html,body{max-width:100%;overflow-x:hidden}
     blocks.forEach(function (el) { io.observe(el); });
   }
 
-  /* ── 풍악 — 삼국지풍 합주. 음원 없이 만든다 ── */
+  /* ── 풍악 — 가락을 앞세우지 않는 웅장한 배경음 ── */
   var btn = document.querySelector('.bgm');
   if (!btn) return;
 
-  var ctx = null, master = null, timer = null, startedAt = 0, bar = 0;
-  var BPM = 88, SPB = 60 / BPM, BEATS = 4;
+  var ctx = null, master = null, timer = null, t0 = 0, step8 = 0;
+  var SEG = 3.4;   // 한 걸음 길이(초). 느리게 흐른다.
 
-  function midi(n) { return 440 * Math.pow(2, (n - 69) / 12); }
+  function hz(n) { return 440 * Math.pow(2, (n - 69) / 12); }
+  // 라단조 5음계 — 넓게 벌려 쓴다
+  var LOW = [38, 45, 50];                       // 드론용
+  var MID = [62, 65, 67, 69, 72];               // D F G A C
+  var HI  = [74, 77, 79, 81, 84];
 
-  // 라단조 5음계 — 중국풍의 뼈대
-  var D3=50, F3=53, G3=55, A3=57, C4=60, D4=62, F4=65, G4=67, A4=69, C5=72, D5=74, F5=77;
-
-  // 여덟 마디 가락. [마디, 박, 음, 길이]
-  var MELODY = [
-    [0,0,A4,1.5],[0,1.5,C5,0.5],[0,2,D5,1.5],[0,3.5,C5,0.5],
-    [1,0,A4,1],[1,1,G4,1],[1,2,F4,2],
-    [2,0,G4,1.5],[2,1.5,A4,0.5],[2,2,C5,2],
-    [3,0,A4,3],[3,3,G4,1],
-    [4,0,F4,1.5],[4,1.5,G4,0.5],[4,2,A4,1.5],[4,3.5,C5,0.5],
-    [5,0,D5,2],[5,2,C5,1],[5,3,A4,1],
-    [6,0,G4,1.5],[6,1.5,F4,0.5],[6,2,D4,2],
-    [7,0,A4,2],[7,2,D4,2]
-  ];
-  var BASS  = [D3, D3, F3, F3, G3, A3, F3, D3];
-  var PLUCK = [0, 1, 2, 2.5, 3];          // 가야금 뜯는 자리
-  var PENTA = [D4, F4, G4, A4, C5, D5];
-
-  function env(g, t, a, d, peak) {
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(peak, t + a);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+  // 낮게 깔리는 드론 — 소리의 바닥
+  function drone(t, dur) {
+    [38, 45].forEach(function (n, i) {
+      var o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+      o.type = i ? 'sine' : 'triangle';
+      o.frequency.value = hz(n) * (i ? 1.002 : 1);
+      f.type = 'lowpass'; f.frequency.value = 420;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(0.09, t + dur * 0.35);
+      g.gain.linearRampToValueAtTime(0.0001, t + dur);
+      o.connect(f); f.connect(g); g.connect(master);
+      o.start(t); o.stop(t + dur + 0.1);
+    });
   }
 
-  // 얼후 같은 선율 — 톱니 + 저역필터 + 비브라토
-  function lead(n, t, dur) {
-    var o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
-    var lfo = ctx.createOscillator(), lg = ctx.createGain();
-    o.type = 'sawtooth'; o.frequency.value = midi(n);
-    f.type = 'lowpass'; f.frequency.setValueAtTime(1100, t);
-    f.frequency.linearRampToValueAtTime(2200, t + 0.18);
-    f.Q.value = 3;
-    lfo.frequency.value = 5.4; lg.gain.value = midi(n) * 0.011;
-    lfo.connect(lg); lg.connect(o.frequency);
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.16, t + 0.09);
-    g.gain.setValueAtTime(0.16, t + dur * 0.72);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    o.connect(f); f.connect(g); g.connect(master);
-    o.start(t); lfo.start(t); o.stop(t + dur + 0.06); lfo.stop(t + dur + 0.06);
+  // 현악 무리 — 천천히 부풀었다 사라진다
+  function swell(notes, t, dur) {
+    notes.forEach(function (n, i) {
+      var o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+      o.type = 'sawtooth';
+      o.frequency.value = hz(n) * (1 + (i - 1) * 0.0015);
+      f.type = 'lowpass';
+      f.frequency.setValueAtTime(500, t);
+      f.frequency.linearRampToValueAtTime(1500, t + dur * 0.45);
+      f.frequency.linearRampToValueAtTime(600, t + dur);
+      f.Q.value = 0.8;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(0.045, t + dur * 0.45);
+      g.gain.linearRampToValueAtTime(0.0001, t + dur);
+      o.connect(f); f.connect(g); g.connect(master);
+      o.start(t); o.stop(t + dur + 0.1);
+    });
   }
 
-  // 가야금 — 짧게 뜯는 소리
-  function pluck(n, t, vol) {
+  // 가야금 한 점 — 드문드문, 여운 길게
+  function tone(n, t, vol) {
     var o1 = ctx.createOscillator(), o2 = ctx.createOscillator();
     var g = ctx.createGain(), f = ctx.createBiquadFilter();
     o1.type = 'triangle'; o2.type = 'sine';
-    o1.frequency.value = midi(n); o2.frequency.value = midi(n) * 2.01;
-    f.type = 'lowpass'; f.frequency.setValueAtTime(3200, t);
-    f.frequency.exponentialRampToValueAtTime(700, t + 1.3);
-    env(g, t, 0.008, 1.4, vol || 0.10);
-    o1.connect(f); o2.connect(f); f.connect(g); g.connect(master);
-    o1.start(t); o2.start(t); o1.stop(t + 1.5); o2.stop(t + 1.5);
-  }
-
-  // 낮은 현 — 바닥을 깔아준다
-  function bass(n, t, dur) {
-    var o = ctx.createOscillator(), g = ctx.createGain();
-    o.type = 'triangle'; o.frequency.value = midi(n);
+    o1.frequency.value = hz(n); o2.frequency.value = hz(n) * 2.004;
+    f.type = 'lowpass';
+    f.frequency.setValueAtTime(2600, t);
+    f.frequency.exponentialRampToValueAtTime(500, t + 2.6);
     g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.13, t + 0.05);
-    g.gain.setValueAtTime(0.13, t + dur * 0.8);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    o.connect(g); g.connect(master);
-    o.start(t); o.stop(t + dur + 0.05);
+    g.gain.exponentialRampToValueAtTime(vol, t + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 2.8);
+    o1.connect(f); o2.connect(f); f.connect(g); g.connect(master);
+    o1.start(t); o2.start(t); o1.stop(t + 3); o2.stop(t + 3);
   }
 
-  // 큰북
-  function taiko(t, vol) {
+  // 먼 북 — 아주 가끔
+  function boom(t) {
     var o = ctx.createOscillator(), g = ctx.createGain();
     o.type = 'sine';
-    o.frequency.setValueAtTime(150, t);
-    o.frequency.exponentialRampToValueAtTime(46, t + 0.22);
-    env(g, t, 0.006, 0.62, vol || 0.30);
+    o.frequency.setValueAtTime(96, t);
+    o.frequency.exponentialRampToValueAtTime(38, t + 0.5);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.20, t + 0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.5);
     o.connect(g); g.connect(master);
-    o.start(t); o.stop(t + 0.7);
+    o.start(t); o.stop(t + 1.6);
   }
 
-  // 작은북 / 징
-  function tak(t) {
-    var len = Math.floor(ctx.sampleRate * 0.11);
-    var buf = ctx.createBuffer(1, len, ctx.sampleRate);
-    var d = buf.getChannelData(0);
-    for (var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
-    var src = ctx.createBufferSource(); src.buffer = buf;
-    var f = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = 2400; f.Q.value = 1.2;
-    var g = ctx.createGain(); env(g, t, 0.004, 0.12, 0.09);
-    src.connect(f); f.connect(g); g.connect(master);
-    src.start(t);
-  }
+  var CHORDS = [[50,57,62],[53,60,65],[55,62,67],[50,57,60]];
 
-  // 한 마디를 미리 예약한다
-  function scheduleBar(b, t0) {
-    var idx = b % 8;
-    MELODY.forEach(function (m) {
-      if (m[0] === idx) lead(m[2], t0 + m[1] * SPB, m[3] * SPB * 0.95);
-    });
-    bass(BASS[idx], t0, BEATS * SPB * 0.96);
-    PLUCK.forEach(function (bt, i) {
-      var n = PENTA[(idx * 2 + i) % PENTA.length];
-      pluck(n, t0 + bt * SPB, 0.075);
-    });
-    taiko(t0, 0.34);
-    taiko(t0 + 2 * SPB, 0.24);
-    tak(t0 + 1 * SPB);
-    tak(t0 + 3 * SPB);
-    if (idx === 7) { tak(t0 + 3.5 * SPB); taiko(t0 + 3.5 * SPB, 0.2); }
+  function scheduleSeg(k, at) {
+    drone(at, SEG * 1.15);
+    swell(CHORDS[k % CHORDS.length], at, SEG * 1.1);
+    // 가야금은 걸음마다 두세 점만. 자리를 흩어 놓아 가락으로 들리지 않게 한다.
+    var n = 2 + (k % 2);
+    for (var i = 0; i < n; i++) {
+      var pool = (i % 2) ? HI : MID;
+      var note = pool[(k * 3 + i * 2) % pool.length];
+      var off = 0.25 + i * (SEG / (n + 0.5)) + (i * 0.13);
+      tone(note, at + off, 0.085);
+    }
+    if (k % 4 === 0) boom(at);
+    if (k % 8 === 5) tone(MID[0] - 12, at + SEG * 0.6, 0.06);
   }
 
   function tick() {
     if (!ctx) return;
-    var barLen = BEATS * SPB;
-    while (startedAt + bar * barLen < ctx.currentTime + 1.2) {
-      scheduleBar(bar, startedAt + bar * barLen);
-      bar++;
+    while (t0 + step8 * SEG < ctx.currentTime + 2.2) {
+      scheduleSeg(step8, t0 + step8 * SEG);
+      step8++;
     }
   }
 
@@ -1875,13 +1887,8 @@ html,body{max-width:100%;overflow-x:hidden}
     if (ctx.state === 'suspended') ctx.resume();
     master.gain.cancelScheduledValues(ctx.currentTime);
     master.gain.setValueAtTime(Math.max(0.0001, master.gain.value), ctx.currentTime);
-    master.gain.linearRampToValueAtTime(0.62, ctx.currentTime + 1.6);
-    if (!timer) {
-      startedAt = ctx.currentTime + 0.15;
-      bar = 0;
-      tick();
-      timer = setInterval(tick, 260);
-    }
+    master.gain.linearRampToValueAtTime(0.75, ctx.currentTime + 2.5);
+    if (!timer) { t0 = ctx.currentTime + 0.2; step8 = 0; tick(); timer = setInterval(tick, 500); }
     paintBtn(true);
   }
 
@@ -1890,7 +1897,7 @@ html,body{max-width:100%;overflow-x:hidden}
     if (ctx && master) {
       master.gain.cancelScheduledValues(ctx.currentTime);
       master.gain.setValueAtTime(master.gain.value, ctx.currentTime);
-      master.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.6);
+      master.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 1.2);
     }
     paintBtn(false);
   }
@@ -1899,15 +1906,14 @@ html,body{max-width:100%;overflow-x:hidden}
     if (btn.dataset.on === '1') stop(); else start();
   });
 
-  // ── 자동재생 ──
-  // 브라우저는 손이 닿기 전엔 소리를 막는다. 일단 켜보고, 막히면 첫 동작에서 켠다.
+  // 자동재생 — 막히면 첫 동작에서 켠다
   if (!reduce) {
     var armed = false;
     function autoStart() {
       if (armed) return;
       armed = true;
       start();
-      ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll'].forEach(function (e) {
+      ['pointerdown','keydown','touchstart','wheel','scroll'].forEach(function (e) {
         window.removeEventListener(e, autoStart);
       });
     }
@@ -1918,8 +1924,8 @@ html,body{max-width:100%;overflow-x:hidden}
       if (probe.state === 'running') { probe.close(); autoStart(); }
       else {
         probe.close();
-        ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll'].forEach(function (e) {
-          window.addEventListener(e, autoStart, { once: false, passive: true });
+        ['pointerdown','keydown','touchstart','wheel','scroll'].forEach(function (e) {
+          window.addEventListener(e, autoStart, { passive: true });
         });
       }
     }, 3600);
