@@ -675,6 +675,39 @@ html,body{max-width:100%;overflow-x:hidden}
   .streak{justify-content:center}
 }
 
+
+/* 동성왕 능력치 */
+.kingpanel{position:relative;z-index:1;margin:0 0 18px;border:1px solid var(--gold-d);
+  background:linear-gradient(180deg,#241e15,#100e0a);
+  box-shadow:inset 0 1px 0 rgba(255,232,170,.16), 0 10px 26px rgba(0,0,0,.5)}
+.kp-t{border-bottom:1px solid var(--gold-d);background:linear-gradient(180deg,#3a3020,#1b1610);
+  padding:11px 18px;font-size:13px;font-weight:700;color:var(--gold-l);letter-spacing:.22em}
+.kstats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(201,162,39,.22)}
+@media(max-width:820px){.kstats{grid-template-columns:repeat(2,1fr)}}
+.kstat{background:#15120c;padding:13px 14px}
+.kn{display:block;font-size:12px;color:#a2946e;letter-spacing:.18em;margin-bottom:4px}
+.kv{display:flex;align-items:baseline;gap:8px;font-size:26px;font-weight:900;color:#f0dca0;
+  text-shadow:0 2px 0 #000;font-variant-numeric:tabular-nums;margin-bottom:7px}
+.kd{font-size:12px;font-weight:700;font-style:normal}
+.kd.up{color:#6fc9a8}.kd.down{color:#f09184}.kd.same{color:#6d6146}
+.kbar{height:8px;background:#080704;border:1px solid rgba(201,162,39,.3);position:relative;overflow:hidden}
+.kbar i{display:block;height:100%;background:linear-gradient(90deg,#7a6117,var(--gold) 70%,#f5e6b4);
+  box-shadow:0 0 8px rgba(201,162,39,.5);transition:width 1.1s cubic-bezier(.2,.75,.2,1)}
+.kdesc{display:block;margin-top:6px;font-size:11px;color:#7e7358;line-height:1.6}
+
+/* 오늘의 사건 */
+.events{position:relative;z-index:1;margin:0 0 24px;border:1px solid var(--vermil);
+  background:linear-gradient(180deg,#2a1410,#140a08);
+  box-shadow:inset 0 1px 0 rgba(255,190,170,.14), 0 10px 26px rgba(0,0,0,.5)}
+.ev-t{border-bottom:1px solid rgba(165,42,30,.6);background:linear-gradient(180deg,#4a1a13,#25100c);
+  padding:11px 18px;font-size:13px;font-weight:700;color:#f2a08f;letter-spacing:.22em}
+.ev{display:flex;gap:13px;align-items:flex-start;padding:13px 18px;
+  border-bottom:1px dashed rgba(165,42,30,.35)}
+.ev:last-child{border-bottom:0}
+.evi{font-size:24px;line-height:1.1;flex:0 0 auto;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+.evt b{display:block;color:#f7d9cf;font-size:15px;margin-bottom:3px}
+.evt span{display:block;color:#c2a79e;font-size:13.5px;line-height:1.75}
+
 /* ── 형세판 (능력치판) ─────────────────────────────── */
 .board{
   position:relative;z-index:1;margin:0 0 28px;
@@ -935,7 +968,7 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="intro-in">
     <div class="king-big"></div>
     <h1>동성왕 아침 브리핑</h1>
-    <div class="sub">2026년 9월 9일 (수) · 제 2 회</div>
+    <div class="sub">2026년 9월 9일 (수) · 제 3 회</div>
     <div class="rule"></div>
   </div>
 </div>
@@ -951,7 +984,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
     <button class="bgm" type="button" data-on="0" aria-pressed="false"><span class="dot"></span><span class="bgm-t">풍악</span></button>
     <div class="beam-date">
-      <b>2026년 9월 9일 (수)</b><br>병오년 9월 9일<br>제 2 회
+      <b>2026년 9월 9일 (수)</b><br>병오년 9월 9일<br>제 3 회
     </div>
   </div></div>
 
@@ -976,138 +1009,179 @@ html,body{max-width:100%;overflow-x:hidden}
 
   <div class="cmd" id="cmd"></div>
 
+<div class="kingpanel">
+  <div class="kp-t">동 성 왕 의 능 력</div>
+  <div class="kstats">
+      <div class="kstat">
+        <span class="kn">통솔</span>
+        <span class="kv">31<i class="kd same">&#8211;</i></span>
+        <div class="kbar"><i style="width:31%"></i></div>
+        <span class="kdesc">최근 7일 중 일한 날 1일</span>
+      </div>
+      <div class="kstat">
+        <span class="kn">무력</span>
+        <span class="kv">25<i class="kd same">&#8211;</i></span>
+        <div class="kbar"><i style="width:25%"></i></div>
+        <span class="kdesc">최근 7일 커밋 1건</span>
+      </div>
+      <div class="kstat">
+        <span class="kn">지력</span>
+        <span class="kv">30<i class="kd same">&#8211;</i></span>
+        <div class="kbar"><i style="width:30%"></i></div>
+        <span class="kdesc">군령 1건 중 0건 이행</span>
+      </div>
+      <div class="kstat">
+        <span class="kn">정치</span>
+        <span class="kv">72<i class="kd same">&#8211;</i></span>
+        <div class="kbar"><i style="width:72%"></i></div>
+        <span class="kdesc">최근 30일 커밋 10건</span>
+      </div>
+      <div class="kstat">
+        <span class="kn">매력</span>
+        <span class="kv">29<i class="kd same">&#8211;</i></span>
+        <div class="kbar"><i style="width:29%"></i></div>
+        <span class="kdesc">브리핑 1통, 원고성 작업 0건</span>
+      </div>
+  </div>
+</div>
+<div class="events">
+  <div class="ev-t">오 늘 의 사 건</div>
+      <div class="ev"><span class="evi">🌾</span><span class="evt"><b>군량이 창고에서 썩고 있습니다</b><span>묶지 않은 파일이 120건입니다. 오늘 한 덩이로 커밋하시면 사라집니다.</span></span></div>
+      <div class="ev"><span class="evi">🏚</span><span class="evt"><b>폐성이 있습니다</b><span>dental-geo-v2(147일), wp-multi-manager(15일), DW-GEO(31일) — 오래 비워두면 되찾는 값이 커집니다.</span></span></div>
+</div>
+
   <div class="court">
 <div class="board">
  <div class="board-t">형 세 판 · 전하의 오늘</div>
  <div class="stats">
-  <div class="stat good"><span class="lbl">연속 조회</span><span class="val">1일째 · 제2회</span><div class="bar"><i style="width:18%"></i></div><span class="note">오늘 아침에 이어 두 번째로 오릅니다</span></div>
-  <div class="stat bad"><span class="lbl">어제 군령</span><span class="val">불이행</span><div class="bar"><i style="width:8%"></i></div><span class="note">dental-geo-v2 에 STATUS.md 없음. 다만 군령이 내려진 지 아홉 시각뿐입니다</span></div>
-  <div class="stat"><span class="lbl">주 전선</span><span class="val">dental-site-kit</span><div class="bar"><i style="width:68%"></i></div><span class="note">9월 6일 연세하늘치과 납품 커밋, 9월 7일 밤 이안치과 wp-package 재생성. 미커밋 104건</span></div>
-  <div class="stat"><span class="lbl">천하 기운</span><span class="val">보통</span><div class="bar"><i style="width:58%"></i></div><span class="note">코스피가 7,083 으로 7천선 위에 올라섰으나, 연준 인상 확률이 6할입니다</span></div>
+ <div class="stat good"><span class="lbl">연속 조회</span><span class="val">1일째 · 제2회</span><div class="bar"><i style="width:18%"></i></div><span class="note">오늘 아침에 이어 두 번째로 오릅니다</span></div>
+ <div class="stat bad"><span class="lbl">어제 군령</span><span class="val">불이행</span><div class="bar"><i style="width:8%"></i></div><span class="note">dental-geo-v2 에 STATUS.md 없음. 다만 군령이 내려진 지 아홉 시각뿐입니다</span></div>
+ <div class="stat"><span class="lbl">주 전선</span><span class="val">dental-site-kit</span><div class="bar"><i style="width:68%"></i></div><span class="note">9월 6일 연세하늘치과 납품 커밋, 9월 7일 밤 이안치과 wp-package 재생성. 미커밋 104건</span></div>
+ <div class="stat"><span class="lbl">천하 기운</span><span class="val">보통</span><div class="bar"><i style="width:58%"></i></div><span class="note">코스피가 7,083 으로 7천선 위에 올라섰으나, 연준 인상 확률이 6할입니다</span></div>
  </div>
 </div>
 
 <div class="who c-jini">
  <div class="face">
-  <div class="medal"><span class="han">찌니</span></div>
-  <div class="nameplate">찌니<span class="role">일정·AI</span></div>
+ <div class="medal"><span class="han">찌니</span></div>
+ <div class="nameplate">찌니<span class="role">일정·AI</span></div>
  </div>
  <div class="bubble">
-  <span class="say">오늘 일정과 AI 소식</span>
-  <p class="lead">오늘은 잡힌 일정이 없습니다. <strong>비어 있는 하루</strong>입니다.</p>
-  <ul class="news">
-   <li><b>내일</b> 오후 1시 40분 · <b>동성병원</b> <em>준비할 것: 오늘 안에 이안치과 확답 여덟 갈래를 넘겨두시면, 내일 오후를 통째로 비울 수 있습니다.</em></li>
-   <li><b>AI마케팅</b> <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBvSUxkUThGY2x5RWc1NkdiZzFHNjU1YTgxVHhyaVd2VjJpMXhVZWpmbUU1em1tdDdGaWdUVndRdDNRNF8zaE5jbndHeHZFNXBPQnhFRXBWMzdMTjhnWEgxczJhbjE?oc=5">플레이디, 네이버에 애드인사이트 공급 — AI 광고 특화</a> — 네이버 광고에 AI 분석이 붙습니다. <em>전하께 쓸 점: 병원 광고 대행 단가가 곧 흔들립니다. 제안서에 "광고비 대신 검색 노출"을 앞세우십시오.</em></li>
-   <li><b>AI마케팅</b> <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5IdVFaNXRUYVlScXZYbWpCQVIzSEJDX0Q2WVZLdG5kaExmSnBORW83bFZRUFJvdVJSbjFONTRmU05jekE3MG1QVG1Yd1NSdjdHSHl3?oc=5">스레드·네이버·빅테크 동시 행보 — 9월 AI 광고시장 재편</a> — 광고판이 다시 짜입니다. <em>전하께 쓸 점: 지금 만든 사이트가 내년에도 인용되려면 GEO가 답입니다. 그 근거로 쓰십시오.</em></li>
-   <li><b>도구</b> <a href="https://github.com/obra/superpowers">obra/superpowers — 작업 방식을 스킬로 묶어 쓰는 얼개</a> <b>(별 28만)</b> — <em>전하께 쓸 점: 머릿속에만 있는 규칙은 스킬이 아닙니다. "게이트 돌리기 전 title로 병원 확인"을 파일로 내려 적으십시오.</em></li>
-  </ul>
+ <span class="say">오늘 일정과 AI 소식</span>
+ <p class="lead">오늘은 잡힌 일정이 없습니다. <strong>비어 있는 하루</strong>입니다.</p>
+ <ul class="news">
+  <li><b>내일</b> 오후 1시 40분 · <b>동성병원</b> <em>준비할 것: 오늘 안에 이안치과 확답 여덟 갈래를 넘겨두시면, 내일 오후를 통째로 비울 수 있습니다.</em></li>
+  <li><b>AI마케팅</b> <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFBvSUxkUThGY2x5RWc1NkdiZzFHNjU1YTgxVHhyaVd2VjJpMXhVZWpmbUU1em1tdDdGaWdUVndRdDNRNF8zaE5jbndHeHZFNXBPQnhFRXBWMzdMTjhnWEgxczJhbjE?oc=5">플레이디, 네이버에 애드인사이트 공급 — AI 광고 특화</a> — 네이버 광고에 AI 분석이 붙습니다. <em>전하께 쓸 점: 병원 광고 대행 단가가 곧 흔들립니다. 제안서에 "광고비 대신 검색 노출"을 앞세우십시오.</em></li>
+  <li><b>AI마케팅</b> <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE5IdVFaNXRUYVlScXZYbWpCQVIzSEJDX0Q2WVZLdG5kaExmSnBORW83bFZRUFJvdVJSbjFONTRmU05jekE3MG1QVG1Yd1NSdjdHSHl3?oc=5">스레드·네이버·빅테크 동시 행보 — 9월 AI 광고시장 재편</a> — 광고판이 다시 짜입니다. <em>전하께 쓸 점: 지금 만든 사이트가 내년에도 인용되려면 GEO가 답입니다. 그 근거로 쓰십시오.</em></li>
+  <li><b>도구</b> <a href="https://github.com/obra/superpowers">obra/superpowers — 작업 방식을 스킬로 묶어 쓰는 얼개</a> <b>(별 28만)</b> — <em>전하께 쓸 점: 머릿속에만 있는 규칙은 스킬이 아닙니다. "게이트 돌리기 전 title로 병원 확인"을 파일로 내려 적으십시오.</em></li>
+ </ul>
  </div>
 </div>
 
 <div class="who c-kongming">
  <div class="face">
-  <div class="medal"><span class="han">공명</span></div>
-  <div class="nameplate">제갈량<span class="role">클로드 코드</span></div>
+ <div class="medal"><span class="han">공명</span></div>
+ <div class="nameplate">제갈량<span class="role">클로드 코드</span></div>
  </div>
  <div class="bubble">
-  <span class="say">클로드 코드를 부리는 법</span>
-  <p class="lead">확인하지 않고 "됐다"고 말하는 습관부터 끊으십시오.</p>
-  <ol class="pri">
-   <li><strong>끝났다는 기준을 먼저 정하게 하라.</strong> 일 시키실 때 <code>고치기 전에, 고쳐졌다는 걸 무엇으로 확인할지 먼저 말해라</code> 한 줄이면 됩니다. 반나절을 아낍니다.</li>
-   <li><strong>"다 됐습니다"에는 증거를 물으십시오.</strong> "무엇을 실행해서 확인했느냐" 한마디면 충분합니다. 빌드 통과는 확인이 아닙니다.</li>
-   <li><strong>0%·100% 같은 반듯한 숫자를 의심하십시오.</strong> 게이트 0건 통과에 한 번 속으셨습니다. 집계 말고 원본 한 줄을 여십시오.</li>
-  </ol>
-  <div class="more">
-   <h4>왜 이것이 급한가</h4>
-   <p>전하의 기록에 같은 상처가 세 번 남아 있습니다. 이안치과 게이트에서 포트를 확인치 않아 남의 병원을 검사하고 0건 통과라 기뻐하신 일, 당신의치과에서 <code>site.css?v=</code> 를 하드코딩해 두고 바뀐 줄 아셨던 일, 화면이 뜨는 것을 보고 기능이 도는 줄 아셨던 일입니다. 세 번 다 원인이 같습니다. <em>본 것과 확인한 것을 구별하지 않으셨습니다.</em></p>
-   <p>병법에서는 이를 척후의 실패라 합니다. 척후가 "적진에 불빛이 있습니다" 하면 본 것이고, "적 본대가 저기 있습니다" 하면 판단입니다. 둘을 섞어 보고하는 척후는 군을 잃습니다.</p>
-   <h4>진짜 확인이란</h4>
-   <p>셋 중 하나여야 합니다. 실제로 실행해 결과를 눈으로 읽었거나, 저장된 값을 다시 꺼내 읽었거나, 화면을 눌러보고 반응을 봤거나. "코드를 작성했습니다"나 "빌드가 통과했습니다"는 코드가 깨지지 않았다는 뜻일 뿐, 기능이 돈다는 뜻이 아닙니다.</p>
-   <p>오늘은 이 하나만 몸에 붙이십시오. 나머지 기술은 다음 브리핑에서 하나씩 아뢰겠습니다.</p>
-  </div>
+ <span class="say">클로드 코드를 부리는 법</span>
+ <p class="lead">확인하지 않고 "됐다"고 말하는 습관부터 끊으십시오.</p>
+ <ol class="pri">
+  <li><strong>끝났다는 기준을 먼저 정하게 하라.</strong> 일 시키실 때 <code>고치기 전에, 고쳐졌다는 걸 무엇으로 확인할지 먼저 말해라</code> 한 줄이면 됩니다. 반나절을 아낍니다.</li>
+  <li><strong>"다 됐습니다"에는 증거를 물으십시오.</strong> "무엇을 실행해서 확인했느냐" 한마디면 충분합니다. 빌드 통과는 확인이 아닙니다.</li>
+  <li><strong>0%·100% 같은 반듯한 숫자를 의심하십시오.</strong> 게이트 0건 통과에 한 번 속으셨습니다. 집계 말고 원본 한 줄을 여십시오.</li>
+ </ol>
+ <div class="more">
+  <h4>왜 이것이 급한가</h4>
+  <p>전하의 기록에 같은 상처가 세 번 남아 있습니다. 이안치과 게이트에서 포트를 확인치 않아 남의 병원을 검사하고 0건 통과라 기뻐하신 일, 당신의치과에서 <code>site.css?v=</code> 를 하드코딩해 두고 바뀐 줄 아셨던 일, 화면이 뜨는 것을 보고 기능이 도는 줄 아셨던 일입니다. 세 번 다 원인이 같습니다. <em>본 것과 확인한 것을 구별하지 않으셨습니다.</em></p>
+  <p>병법에서는 이를 척후의 실패라 합니다. 척후가 "적진에 불빛이 있습니다" 하면 본 것이고, "적 본대가 저기 있습니다" 하면 판단입니다. 둘을 섞어 보고하는 척후는 군을 잃습니다.</p>
+  <h4>진짜 확인이란</h4>
+  <p>셋 중 하나여야 합니다. 실제로 실행해 결과를 눈으로 읽었거나, 저장된 값을 다시 꺼내 읽었거나, 화면을 눌러보고 반응을 봤거나. "코드를 작성했습니다"나 "빌드가 통과했습니다"는 코드가 깨지지 않았다는 뜻일 뿐, 기능이 돈다는 뜻이 아닙니다.</p>
+  <p>오늘은 이 하나만 몸에 붙이십시오. 나머지 기술은 다음 브리핑에서 하나씩 아뢰겠습니다.</p>
+ </div>
  </div>
 </div>
 
 <div class="who aside c-shiyuan">
  <div class="face">
-  <div class="medal"><span class="han">사원</span></div>
-  <div class="nameplate">방통<span class="role">오늘의 군령</span></div>
+ <div class="medal"><span class="han">사원</span></div>
+ <div class="nameplate">방통<span class="role">오늘의 군령</span></div>
  </div>
  <div class="bubble">
-  <p class="order-check"><b>어제의 군령</b> dental-geo-v2 에 STATUS.md 를 열 줄로 적고 커밋하라 &nbsp;→&nbsp; <b>판정</b> <b>불이행.</b> <code>ls dental-geo-v2/STATUS.md</code> 결과 없습니다. 다만 군령이 아홉 시각 전 것이니, 신은 이것을 게으름으로 세지 않고 <b>유예</b>로 세겠습니다. 오늘 해가 지기 전에 이행하십시오.</p>
-  <p>공명의 말은 길지만 요지는 하나입니다. <b>지금 고쳐둔 것을 묶어두라.</b> 신도 같은 것을 봤습니다. 104건이면 진지가 아니라 짐수레입니다. 짐이 무거워 진을 못 옮깁니다.</p>
-  <p class="order"><b>오늘의 군령</b> <code>dental-site-kit</code> 의 킷 공용 파일 열 개(build.py 와 build/ 아래)를 <b>한 덩이로 커밋</b>하십시오. 코드는 더 고치지 마십시오. 이미 고쳐놓은 것을 묶기만 하면 됩니다. 다섯 시각이면 끝납니다. 내일 신이 <code>git -C dental-site-kit log -1</code> 로 확인하겠습니다.</p>
+ <p class="order-check"><b>어제의 군령</b> dental-geo-v2 에 STATUS.md 를 열 줄로 적고 커밋하라 &nbsp;→&nbsp; <b>판정</b> <b>불이행.</b> <code>ls dental-geo-v2/STATUS.md</code> 결과 없습니다. 다만 군령이 아홉 시각 전 것이니, 신은 이것을 게으름으로 세지 않고 <b>유예</b>로 세겠습니다. 오늘 해가 지기 전에 이행하십시오.</p>
+ <p>공명의 말은 길지만 요지는 하나입니다. <b>지금 고쳐둔 것을 묶어두라.</b> 신도 같은 것을 봤습니다. 104건이면 진지가 아니라 짐수레입니다. 짐이 무거워 진을 못 옮깁니다.</p>
+ <p class="order"><b>오늘의 군령</b> <code>dental-site-kit</code> 의 킷 공용 파일 열 개(build.py 와 build/ 아래)를 <b>한 덩이로 커밋</b>하십시오. 코드는 더 고치지 마십시오. 이미 고쳐놓은 것을 묶기만 하면 됩니다. 다섯 시각이면 끝납니다. 내일 신이 <code>git -C dental-site-kit log -1</code> 로 확인하겠습니다.</p>
  </div>
 </div>
 
 <div class="who c-wenruo">
  <div class="face">
-  <div class="medal"><span class="han">문약</span></div>
-  <div class="nameplate">순욱<span class="role">사업·방향</span></div>
+ <div class="medal"><span class="han">문약</span></div>
+ <div class="nameplate">순욱<span class="role">사업·방향</span></div>
  </div>
  <div class="bubble">
-  <span class="say">전하의 사업과 삶</span>
-  <p class="lead">곳간을 막는 것은 코드가 아니라 <strong>남의 회신</strong>입니다.</p>
-  <ol class="pri">
-   <li><strong>이안치과 원장께 확답 여덟 갈래를 한 통에 묶어 보내십시오.</strong> 증례 수 근거·++ 표기·네이버 예약 주소·토요일 격주 휴무·수가표 세 줄·후기 넉 장 게재 승인까지, 따로 묻지 말고 한 장에 담아 오늘 넘기십시오.</li>
-   <li><strong>기다리는 동안 dental-site-kit 미커밋 104건을 묶으십시오.</strong> 이건 누구의 답도 필요 없습니다. 전하 손만 움직이면 끝납니다.</li>
-   <li><strong>dental-geo-v2 는 이번 달 재우십시오.</strong> 4월 15일이 마지막 커밋입니다. 버리는 게 아니라 미루는 것이니, STATUS.md 한 장만 남기면 됩니다.</li>
-  </ol>
-  <div class="more">
-   <h4>아침에 드린 말씀을 바로잡습니다</h4>
-   <p>아침에 "이레 동안 다섯 폴더 모두 수정 0건"이라 아뢴 것은 틀렸습니다. 신이 폴더를 덜 봤습니다. 다시 세어보니 9월 6일 dental-site-kit 에 연세하늘치과 납품 커밋이 있고, 9월 7일 밤 열시에는 이안치과 wp-package 를 다시 만드셨으며, 9월 8일 아침에는 동네보살 원고가 나갔습니다. 전하의 손은 멈춘 적이 없습니다. 멈춘 것은 dental-geo-v2 하나뿐입니다.</p>
-   <h4>왜 회신이 곳간을 막는가</h4>
-   <p>후기 넉 장은 의료법 거름망까지 통과시켜 폴더에 넣어두셨는데, 게재 승인이 없어 화면에 못 올라갑니다. 만들어놓고 못 쓰는 것이 가장 아깝습니다. 여덟 갈래를 한 통에 묶는 까닭도 이것입니다. 한 번에 물으면 한 번에 답이 옵니다. 나눠 물으면 여덟 번 기다립니다.</p>
-  </div>
+ <span class="say">전하의 사업과 삶</span>
+ <p class="lead">곳간을 막는 것은 코드가 아니라 <strong>남의 회신</strong>입니다.</p>
+ <ol class="pri">
+  <li><strong>이안치과 원장께 확답 여덟 갈래를 한 통에 묶어 보내십시오.</strong> 증례 수 근거·++ 표기·네이버 예약 주소·토요일 격주 휴무·수가표 세 줄·후기 넉 장 게재 승인까지, 따로 묻지 말고 한 장에 담아 오늘 넘기십시오.</li>
+  <li><strong>기다리는 동안 dental-site-kit 미커밋 104건을 묶으십시오.</strong> 이건 누구의 답도 필요 없습니다. 전하 손만 움직이면 끝납니다.</li>
+  <li><strong>dental-geo-v2 는 이번 달 재우십시오.</strong> 4월 15일이 마지막 커밋입니다. 버리는 게 아니라 미루는 것이니, STATUS.md 한 장만 남기면 됩니다.</li>
+ </ol>
+ <div class="more">
+  <h4>아침에 드린 말씀을 바로잡습니다</h4>
+  <p>아침에 "이레 동안 다섯 폴더 모두 수정 0건"이라 아뢴 것은 틀렸습니다. 신이 폴더를 덜 봤습니다. 다시 세어보니 9월 6일 dental-site-kit 에 연세하늘치과 납품 커밋이 있고, 9월 7일 밤 열시에는 이안치과 wp-package 를 다시 만드셨으며, 9월 8일 아침에는 동네보살 원고가 나갔습니다. 전하의 손은 멈춘 적이 없습니다. 멈춘 것은 dental-geo-v2 하나뿐입니다.</p>
+  <h4>왜 회신이 곳간을 막는가</h4>
+  <p>후기 넉 장은 의료법 거름망까지 통과시켜 폴더에 넣어두셨는데, 게재 승인이 없어 화면에 못 올라갑니다. 만들어놓고 못 쓰는 것이 가장 아깝습니다. 여덟 갈래를 한 통에 묶는 까닭도 이것입니다. 한 번에 물으면 한 번에 답이 옵니다. 나눠 물으면 여덟 번 기다립니다.</p>
+ </div>
  </div>
 </div>
 
 <div class="who aside c-fengxiao">
  <div class="face">
-  <div class="medal"><span class="han">봉효</span></div>
-  <div class="nameplate">곽가<span class="role">반론</span></div>
+ <div class="medal"><span class="han">봉효</span></div>
+ <div class="nameplate">곽가<span class="role">반론</span></div>
  </div>
  <div class="bubble"><p>문약의 계책은 좋으나 하나가 위험합니다. <b>여덟에 다 기본값을 붙이시면 안 됩니다.</b> 증례 수 1,326건은 다릅니다. 이것은 취향이 아니라 <b>의료법이 객관적 근거를 요구하는 숫자</b>입니다. 여기에 "회신 없으면 이대로 갑니다"를 붙이시면, 근거 없는 숫자를 원장이 아니라 <b>전하가 내보낸 것</b>이 됩니다. 문제가 생기면 만든 사람이 먼저 불립니다. 일곱은 그리 하시되, 증례 수만은 기본값을 반대로 잡으십시오. <b>근거 서류가 오기 전엔 내린다.</b> 이쪽이 안전합니다.</p></div>
 </div>
 
 <div class="who c-diaochan">
  <div class="face">
-  <div class="medal"><span class="han">초선</span></div>
-  <div class="nameplate">초선<span class="role">경제 뉴스</span></div>
+ <div class="medal"><span class="han">초선</span></div>
+ <div class="nameplate">초선<span class="role">경제 뉴스</span></div>
  </div>
  <div class="bubble">
-  <span class="say">천하의 소식</span>
-  <ul class="news">
-   <li><b>국내</b> 코스피가 6,972.87 로 열어 장중 7,000 선을 넘었고, 지금은 7,083 까지 올라와 있습니다. 기계·장비와 건설이 4% 넘게 뛰었습니다. <em>초선의 생각: 오른 업종이 설비와 건설입니다. 소비가 아니라 투자가 도는 장이라는 뜻이니, 원장들의 지갑이 열리기까진 시차가 있습니다.</em></li>
-   <li><b>국내</b> 한국은행이 "9월 물가 상승률은 8월보다 낮아지겠으나 근원물가의 기조적 오름세는 이어진다"고 밝혔습니다. 8월 소비자물가는 3.1%, 근원은 3.4% 였습니다. <em>초선의 생각: 근원이 더 높다는 건 물가가 기름값 탓만은 아니라는 뜻입니다. 내년 인건비·외주비를 올려 잡으십시오.</em></li>
-   <li><b>국내</b> 기준금리는 8월 27일 3.00% 로 올라 있습니다. 7월 2.75% 에서 두 달 새 두 번째 인상입니다. <em>초선의 생각: 병원은 대개 장비 대출을 끼고 삽니다. 금리가 오르는 국면에선 원장들이 새 지출을 미룹니다. 제안서에 큰 금액을 한 번에 적지 마시고 나눠 적으십시오.</em></li>
-   <li><b>세계</b> 미국 고용이 예상 5만6천 대비 <b>16만2천</b> 으로 나오면서, 9월 16일 연준 회의의 인상 확률이 6할까지 올랐습니다. <em>초선의 생각: 인상 쪽으로 굳으면 원화가 다시 밀립니다. 해외 도구 구독을 연장하실 생각이면 원화가 강한 지금이 낫습니다.</em></li>
-   <li><b>세계</b> 유럽중앙은행은 이번 주 목요일 2.50% 로 올릴 것으로 보이고, 일본은행도 분기 말 1.25% 가 반영돼 있습니다. <b>세 중앙은행이 동시에 조입니다.</b> <em>초선의 생각: 세계가 한꺼번에 돈줄을 죄는 국면은 드뭅니다. 올해 안에 큰 설비나 큰 계약을 벌이실 때가 아닙니다.</em></li>
-   <li><b>세계</b> 금은 강한 고용 지표에 눌려 4,400달러 선까지 내렸다가 오늘 다시 올랐고, 은은 66달러 선에서 버티다 오늘 67달러를 넘었습니다. <em>초선의 생각: 금리가 오르는데 금이 버티는 것은 사람들이 여전히 불안하다는 뜻입니다. 자산을 옮기실 때가 아니라 그대로 두실 때입니다.</em></li>
-  </ul>
+ <span class="say">천하의 소식</span>
+ <ul class="news">
+  <li><b>국내</b> 코스피가 6,972.87 로 열어 장중 7,000 선을 넘었고, 지금은 7,083 까지 올라와 있습니다. 기계·장비와 건설이 4% 넘게 뛰었습니다. <em>초선의 생각: 오른 업종이 설비와 건설입니다. 소비가 아니라 투자가 도는 장이라는 뜻이니, 원장들의 지갑이 열리기까진 시차가 있습니다.</em></li>
+  <li><b>국내</b> 한국은행이 "9월 물가 상승률은 8월보다 낮아지겠으나 근원물가의 기조적 오름세는 이어진다"고 밝혔습니다. 8월 소비자물가는 3.1%, 근원은 3.4% 였습니다. <em>초선의 생각: 근원이 더 높다는 건 물가가 기름값 탓만은 아니라는 뜻입니다. 내년 인건비·외주비를 올려 잡으십시오.</em></li>
+  <li><b>국내</b> 기준금리는 8월 27일 3.00% 로 올라 있습니다. 7월 2.75% 에서 두 달 새 두 번째 인상입니다. <em>초선의 생각: 병원은 대개 장비 대출을 끼고 삽니다. 금리가 오르는 국면에선 원장들이 새 지출을 미룹니다. 제안서에 큰 금액을 한 번에 적지 마시고 나눠 적으십시오.</em></li>
+  <li><b>세계</b> 미국 고용이 예상 5만6천 대비 <b>16만2천</b> 으로 나오면서, 9월 16일 연준 회의의 인상 확률이 6할까지 올랐습니다. <em>초선의 생각: 인상 쪽으로 굳으면 원화가 다시 밀립니다. 해외 도구 구독을 연장하실 생각이면 원화가 강한 지금이 낫습니다.</em></li>
+  <li><b>세계</b> 유럽중앙은행은 이번 주 목요일 2.50% 로 올릴 것으로 보이고, 일본은행도 분기 말 1.25% 가 반영돼 있습니다. <b>세 중앙은행이 동시에 조입니다.</b> <em>초선의 생각: 세계가 한꺼번에 돈줄을 죄는 국면은 드뭅니다. 올해 안에 큰 설비나 큰 계약을 벌이실 때가 아닙니다.</em></li>
+  <li><b>세계</b> 금은 강한 고용 지표에 눌려 4,400달러 선까지 내렸다가 오늘 다시 올랐고, 은은 66달러 선에서 버티다 오늘 67달러를 넘었습니다. <em>초선의 생각: 금리가 오르는데 금이 버티는 것은 사람들이 여전히 불안하다는 뜻입니다. 자산을 옮기실 때가 아니라 그대로 두실 때입니다.</em></li>
+ </ul>
  </div>
 </div>
 
 <div class="who aside c-gongjin">
  <div class="face">
-  <div class="medal"><span class="han">공근</span></div>
-  <div class="nameplate">주유<span class="role">경쟁·판세</span></div>
+ <div class="medal"><span class="han">공근</span></div>
+ <div class="nameplate">주유<span class="role">경쟁·판세</span></div>
  </div>
  <div class="bubble"><p>판세를 말씀드립니다. 남들은 병원 하나에 한 달을 씁니다. 전하는 9월 6일에 연세하늘치과를 킷에 태우고 이튿날 밤 이안치과 납품물을 다시 뽑으셨습니다. <b>여섯 번째 병원의 값이 첫 번째보다 싸다</b> — 이것이 전하의 해자입니다. 값싼 업자는 여섯 번째도 첫 번째와 같은 값을 치릅니다.</p><p>다만 이 해자는 <b>킷이 정돈돼 있을 때만</b> 해자입니다. 공용 파일 열 개가 묶이지 않은 채로 굴러다니면, 병원이 늘수록 빨라지는 게 아니라 병원이 늘수록 무서워집니다. 공명의 말과 신의 말은 같은 말입니다.</p></div>
 </div>
 
 <div class="who c-mengde">
  <div class="face">
-  <div class="medal"><span class="han">맹덕</span></div>
-  <div class="nameplate">조조<span class="role">시세</span></div>
+ <div class="medal"><span class="han">맹덕</span></div>
+ <div class="nameplate">조조<span class="role">시세</span></div>
  </div>
  <div class="bubble">
-  <span class="say">오늘의 시세</span>
-  <p>오늘은 한국이 홀로 웃고 미국은 셋 다 물러섰소. 그대는 이것을 좋은 날이라 부르겠지. 나는 <b>금과 은이 같이 오른 날</b>을 좋은 날이라 부르지 않소. 사람들이 무서워한다는 뜻이니까.</p>
-  <div class="mkt-wrap">
+ <span class="say">오늘의 시세</span>
+ <p>오늘은 한국이 홀로 웃고 미국은 셋 다 물러섰소. 그대는 이것을 좋은 날이라 부르겠지. 나는 <b>금과 은이 같이 오른 날</b>을 좋은 날이라 부르지 않소. 사람들이 무서워한다는 뜻이니까.</p>
+ <div class="mkt-wrap">
  <table class="mkt">
-  <thead><tr><th>품목</th><th>시세</th><th>등락</th><th>한 달 흐름</th><th>맹덕의 말</th></tr></thead>
-  <tbody>
+ <thead><tr><th>품목</th><th>시세</th><th>등락</th><th>한 달 흐름</th><th>맹덕의 말</th></tr></thead>
+ <tbody>
 <tr><td>비트코인</td><td>78,732.35</td><td class="down">▼ -0.48%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.7 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,27.0 8.0,20.4 12.9,14.9 17.9,7.2 22.8,9.1 27.8,8.1 32.7,6.3 37.7,6.9 42.6,6.2 47.6,4.5 52.5,8.0 57.5,7.4 62.4,8.2 67.4,6.9 72.3,8.6 77.3,8.7 82.2,3.0 87.2,5.3 92.1,5.1 97.1,4.3 102.0,6.1 107.0,6.7" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="6.7" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">이레째 옆걸음이오. 조바심 낼 자리가 아니오</td></tr>
 <tr><td>이더리움</td><td>2,492.91</td><td class="up">▲ +0.08%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.9 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,13.6 12.9,10.6 17.9,3.0 22.8,6.6 27.8,5.1 32.7,4.3 37.7,5.9 42.6,3.4 47.6,3.2 52.5,5.9 57.5,5.3 62.4,6.9 67.4,4.9 72.3,6.9 77.3,8.0 82.2,3.3 87.2,5.4 92.1,4.4 97.1,3.0 102.0,4.0 107.0,3.9" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.9" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">제자리요. 볼 것 없소</td></tr>
 <tr><td>리플</td><td>1.419</td><td class="up">▲ +1.54%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,7.7 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,27.0 8.0,22.3 12.9,14.7 17.9,6.2 22.8,5.7 27.8,3.0 32.7,5.0 37.7,7.1 42.6,7.6 47.6,6.2 52.5,9.4 57.5,8.8 62.4,10.5 67.4,9.6 72.3,10.9 77.3,10.9 82.2,6.3 87.2,8.7 92.1,8.1 97.1,7.6 102.0,8.7 107.0,7.7" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="7.7" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">셋 중 홀로 오르오. 잔물결이니 믿지 마시오</td></tr>
@@ -1119,7 +1193,7 @@ html,body{max-width:100%;overflow-x:hidden}
 <tr><td>금 (온스)</td><td>4,422.20</td><td class="down">▼ -0.17%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,25.9 8.2,24.1 13.4,22.0 18.6,25.7 23.8,24.3 29.0,21.3 34.2,25.5 39.4,15.4 44.6,13.2 49.8,4.4 55.0,3.0 60.2,3.2 65.4,6.5 70.6,5.5 75.8,16.3 81.0,20.2 86.2,27.0 91.4,25.5 96.6,15.2 101.8,20.3 107.0,23.2 107.0,27.0 3.0,27.0" fill="#1f4f8f" opacity=".13"/><polyline points="3.0,25.9 8.2,24.1 13.4,22.0 18.6,25.7 23.8,24.3 29.0,21.3 34.2,25.5 39.4,15.4 44.6,13.2 49.8,4.4 55.0,3.0 60.2,3.2 65.4,6.5 70.6,5.5 75.8,16.3 81.0,20.2 86.2,27.0 91.4,25.5 96.6,15.2 101.8,20.3 107.0,23.2" fill="none" stroke="#1f4f8f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="23.2" r="2.1" fill="#1f4f8f"/></svg></td><td class="note-cell">하루 쉬어가오. 추세는 살아 있소</td></tr>
 <tr><td>은 (온스)</td><td>66.900</td><td class="up">▲ +1.29%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,21.9 8.2,23.4 13.4,20.0 18.6,23.0 23.8,22.5 29.0,17.5 34.2,27.0 39.4,19.2 44.6,9.3 49.8,3.0 55.0,7.0 60.2,6.6 65.4,9.4 70.6,3.2 75.8,13.7 81.0,17.1 86.2,24.1 91.4,23.6 96.6,13.8 101.8,17.9 107.0,16.8 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,21.9 8.2,23.4 13.4,20.0 18.6,23.0 23.8,22.5 29.0,17.5 34.2,27.0 39.4,19.2 44.6,9.3 49.8,3.0 55.0,7.0 60.2,6.6 65.4,9.4 70.6,3.2 75.8,13.7 81.0,17.1 86.2,24.1 91.4,23.6 96.6,13.8 101.8,17.9 107.0,16.8" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="16.8" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">금보다 앞서오. 산업 수요가 붙었소</td></tr>
 <tr><td>구리 (파운드)</td><td>6.751</td><td class="up">▲ +2.33%</td><td class="sparkcell"><svg class="spark" viewBox="0 0 110 30" preserveAspectRatio="none" aria-hidden="true"><polygon points="3.0,15.4 8.2,13.9 13.4,15.2 18.6,15.6 23.8,15.0 29.0,14.6 34.2,25.1 39.4,24.6 44.6,27.0 49.8,16.7 55.0,15.0 60.2,5.5 65.4,15.4 70.6,16.1 75.8,18.2 81.0,15.5 86.2,23.0 91.4,23.5 96.6,16.9 101.8,15.2 107.0,3.0 107.0,27.0 3.0,27.0" fill="#a8271c" opacity=".13"/><polyline points="3.0,15.4 8.2,13.9 13.4,15.2 18.6,15.6 23.8,15.0 29.0,14.6 34.2,25.1 39.4,24.6 44.6,27.0 49.8,16.7 55.0,15.0 60.2,5.5 65.4,15.4 70.6,16.1 75.8,18.2 81.0,15.5 86.2,23.0 91.4,23.5 96.6,16.9 101.8,15.2 107.0,3.0" fill="none" stroke="#a8271c" stroke-width="1.6" stroke-linejoin="round"/><circle cx="107.0" cy="3.0" r="2.1" fill="#a8271c"/></svg></td><td class="note-cell">런던서 사상 최고요. 물가로 돌아올 것이오</td></tr>
-  </tbody>
+ </tbody>
  </table>
 </div>
 <div class="mkt-note">야후 파이낸스에서 직접 받은 값 · 2026-09-09 12:50 기준. 그래프는 최근 한 달 종가다. 찾지 못한 값은 「조회 실패」라 적을 뿐, 꾸며내지 않소.</div>
@@ -1128,24 +1202,24 @@ html,body{max-width:100%;overflow-x:hidden}
 
 <div class="who c-yunchang">
  <div class="face">
-  <div class="medal"><span class="han">운장</span></div>
-  <div class="nameplate">관우<span class="role">고전</span></div>
+ <div class="medal"><span class="han">운장</span></div>
+ <div class="nameplate">관우<span class="role">고전</span></div>
  </div>
  <div class="bubble">
-  <span class="say">오늘 새길 옛말</span>
-  <div class="classic">
-   <div class="han">昔之善戰者 先爲不可勝 以待敵之可勝<br>不可勝在己 可勝在敵</div>
-   <div class="rd">석지선전자 선위불가승 이대적지가승<br>불가승재기 가승재적</div>
-   <div class="src">손자병법 · 군형편(軍形篇)</div>
-   <div class="exp">
-    <p>옛날에 잘 싸운 자는 먼저 <b>질 수 없는 자리</b>를 만들어 놓고, 적에게 이길 틈이 생기기를 기다렸다. 지지 않는 것은 나에게 달렸고, 이기는 것은 적에게 달렸다.</p>
-    <p>손자는 이길 방법을 먼저 말하지 않았습니다. <b>질 수 없는 자리</b>를 먼저 말했습니다. 이 둘을 나눈 것이 이 문장의 전부입니다. 내 손에 있는 일과 남의 손에 있는 일을 섞지 말라는 뜻입니다.</p>
-    <p>오늘 조회가 마침 그 둘로 갈렸습니다. 공명이 말한 커밋은 <b>불가승재기</b>입니다. 되돌릴 자리를 만드는 일은 전적으로 전하의 손에 있고, 누구의 회신도 필요 없으며, 다섯 시각이면 끝납니다. 문약이 말한 원장의 확답 여덟 갈래는 <b>가승재적</b>입니다. 아무리 애태우셔도 전하의 손에 있지 않습니다.</p>
-    <p>사람이 지치는 까닭은 대개 이 둘을 뒤바꾸기 때문입니다. 남의 손에 있는 것을 종일 걱정하고, 제 손에 있는 것은 미룹니다. 걱정은 해도 줄지 않고, 미룬 것은 쌓여 104건이 됩니다.</p>
-    <p>그러니 오늘은 순서를 바로 하십시오. 먼저 제 손에 있는 것을 묶으십시오. 그다음에 남의 손에 있는 것을 <b>기다리기 좋게</b> 만드십시오. 문약이 이른 대로 질문을 답으로 바꿔 보내는 일이 곧 기다림을 준비하는 일입니다. 봉효가 증례 수 하나만은 반대로 잡으라 한 것도 같은 이치입니다. 남에게 달린 것 중에서 <b>져도 되는 것과 져서는 안 되는 것</b>을 가른 것이지요.</p>
-    <p>질 수 없는 자리에 서 있으면 기다림은 초조가 아닙니다. 그저 시간일 뿐입니다.</p>
-   </div>
+ <span class="say">오늘 새길 옛말</span>
+ <div class="classic">
+  <div class="han">昔之善戰者 先爲不可勝 以待敵之可勝<br>不可勝在己 可勝在敵</div>
+  <div class="rd">석지선전자 선위불가승 이대적지가승<br>불가승재기 가승재적</div>
+  <div class="src">손자병법 · 군형편(軍形篇)</div>
+  <div class="exp">
+  <p>옛날에 잘 싸운 자는 먼저 <b>질 수 없는 자리</b>를 만들어 놓고, 적에게 이길 틈이 생기기를 기다렸다. 지지 않는 것은 나에게 달렸고, 이기는 것은 적에게 달렸다.</p>
+  <p>손자는 이길 방법을 먼저 말하지 않았습니다. <b>질 수 없는 자리</b>를 먼저 말했습니다. 이 둘을 나눈 것이 이 문장의 전부입니다. 내 손에 있는 일과 남의 손에 있는 일을 섞지 말라는 뜻입니다.</p>
+  <p>오늘 조회가 마침 그 둘로 갈렸습니다. 공명이 말한 커밋은 <b>불가승재기</b>입니다. 되돌릴 자리를 만드는 일은 전적으로 전하의 손에 있고, 누구의 회신도 필요 없으며, 다섯 시각이면 끝납니다. 문약이 말한 원장의 확답 여덟 갈래는 <b>가승재적</b>입니다. 아무리 애태우셔도 전하의 손에 있지 않습니다.</p>
+  <p>사람이 지치는 까닭은 대개 이 둘을 뒤바꾸기 때문입니다. 남의 손에 있는 것을 종일 걱정하고, 제 손에 있는 것은 미룹니다. 걱정은 해도 줄지 않고, 미룬 것은 쌓여 104건이 됩니다.</p>
+  <p>그러니 오늘은 순서를 바로 하십시오. 먼저 제 손에 있는 것을 묶으십시오. 그다음에 남의 손에 있는 것을 <b>기다리기 좋게</b> 만드십시오. 문약이 이른 대로 질문을 답으로 바꿔 보내는 일이 곧 기다림을 준비하는 일입니다. 봉효가 증례 수 하나만은 반대로 잡으라 한 것도 같은 이치입니다. 남에게 달린 것 중에서 <b>져도 되는 것과 져서는 안 되는 것</b>을 가른 것이지요.</p>
+  <p>질 수 없는 자리에 서 있으면 기다림은 초조가 아닙니다. 그저 시간일 뿐입니다.</p>
   </div>
+ </div>
  </div>
 </div>
  </div>
@@ -1165,30 +1239,44 @@ html,body{max-width:100%;overflow-x:hidden}
  </div>
 
  <div class="past">
-  <div class="past-t">지 난 브 리 핑</div>
-  <div class="past-pick">
-   <select class="past-sel" aria-label="날짜 선택">
-    <option value="">날짜를 고르십시오</option>
-    <option value="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html">2026-09-09 (오늘)</option>
-   </select>
-  </div>
-  <div class="past-list">
-   <a href="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html"><b>9월 9일</b><span>오늘</span></a>
-  </div>
+ <div class="past-t">지 난 브 리 핑</div>
+ <div class="past-pick">
+  <select class="past-sel" aria-label="날짜 선택">
+  <option value="">날짜를 고르십시오</option>
+  <option value="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html">2026-09-09 (오늘)</option>
+  </select>
+ </div>
+ <div class="past-list">
+  <a href="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html"><b>9월 9일</b><span>오늘</span></a>
+ </div>
  </div>
  </div>
 
  <div class="past">
-  <div class="past-t">지 난 브 리 핑</div>
-  <div class="past-pick">
-   <select class="past-sel" aria-label="날짜 선택">
-    <option value="">날짜를 고르십시오</option>
-    <option value="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html">2026-09-09 (오늘)</option>
-   </select>
-  </div>
-  <div class="past-list">
-   <a href="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html"><b>9월 9일</b><span>오늘</span></a>
-  </div>
+ <div class="past-t">지 난 브 리 핑</div>
+ <div class="past-pick">
+  <select class="past-sel" aria-label="날짜 선택">
+  <option value="">날짜를 고르십시오</option>
+  <option value="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html">2026-09-09 (오늘)</option>
+  </select>
+ </div>
+ <div class="past-list">
+  <a href="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html"><b>9월 9일</b><span>오늘</span></a>
+ </div>
+ </div>
+ </div>
+
+ <div class="past">
+ <div class="past-t">지 난 브 리 핑</div>
+ <div class="past-pick">
+  <select class="past-sel" aria-label="날짜 선택">
+  <option value="">날짜를 고르십시오</option>
+  <option value="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html">2026-09-09 (오늘)</option>
+  </select>
+ </div>
+ <div class="past-list">
+  <a href="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html"><b>9월 9일</b><span>오늘</span></a>
+ </div>
  </div>
  </div>
 
@@ -1616,6 +1704,10 @@ html,body{max-width:100%;overflow-x:hidden}
 
   function show(el) {
     el.classList.add('in');
+    el.querySelectorAll('.kbar i').forEach(function (b, i) {
+      var w = b.style.width; b.style.width = '0%';
+      setTimeout(function () { b.style.width = w; }, 150 + i * 90);
+    });
     el.querySelectorAll('.bar i').forEach(function (b, i) {
       setTimeout(function () { b.style.width = b.dataset.w; }, 180 + i * 110);
     });
