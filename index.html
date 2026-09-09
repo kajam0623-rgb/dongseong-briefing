@@ -411,6 +411,38 @@ body{
   .bubble::before,.bubble::after{left:50% !important;transform:translateX(-50%)}
 }
 
+/* ── 우선순위 목록 ─────────────────────────────────── */
+.pri{list-style:none;counter-reset:pri;margin:14px 0 0;padding:0}
+.pri li{
+  counter-increment:pri;position:relative;
+  padding:13px 14px 13px 52px;margin-bottom:10px;
+  background:linear-gradient(180deg,rgba(122,97,23,.10),rgba(122,97,23,.04));
+  border:1px solid rgba(122,97,23,.35);border-left:4px solid var(--vermil);
+  border-radius:0 6px 6px 0;font-size:15.5px;line-height:1.95
+}
+.pri li:last-child{margin-bottom:0}
+.pri li::before{
+  content:counter(pri);position:absolute;left:12px;top:11px;
+  width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(180deg,#3d1410,#260c09);
+  border:1px solid var(--vermil);color:#f2a08f;
+  font-size:14px;font-weight:900;display:grid;place-items:center;
+  box-shadow:0 2px 6px rgba(0,0,0,.5)
+}
+.pri li:nth-child(1){border-left-color:var(--vermil)}
+.pri li:nth-child(2){border-left-color:var(--gold-d)}
+.pri li:nth-child(3){border-left-color:var(--jade)}
+.pri li:nth-child(2)::before{background:linear-gradient(180deg,#3a3016,#221a08);border-color:var(--gold-d);color:#f0dca0}
+.pri li:nth-child(3)::before{background:linear-gradient(180deg,#123128,#0a1f19);border-color:var(--jade);color:#7cc4ab}
+.who.aside .pri li{background:rgba(255,255,255,.04);color:#ddd2b4}
+
+/* 명패에 무엇을 말하는지 크게 */
+.nameplate .role{
+  display:block;margin-top:3px;
+  color:var(--gold-l) !important;font-size:12px !important;font-weight:700;
+  letter-spacing:.02em
+}
+
 /* ── 형세판 (능력치판) ─────────────────────────────── */
 .board{
   position:relative;z-index:1;margin:0 0 28px;
@@ -709,32 +741,23 @@ body{
 <div class="who c-kongming">
   <div class="face">
     <div class="medal"><span class="han">공명</span></div>
-    <div class="nameplate">제갈량<span class="zi">자 공명</span><span class="role">승상</span></div>
+    <div class="nameplate">제갈량<span class="role">클로드 코드</span></div>
   </div>
   <div class="bubble">
     <span class="say">클로드 코드를 부리는 법</span>
-    <p class="lead">오늘은 <b>물러설 자리</b>에 대해 아뢰겠습니다. 아침에 아뢴 것이 앞을 보는 법이었다면, 이번엔 뒤를 보는 법입니다.</p>
-    <p>신이 전하의 진지를 다시 살펴보았습니다. <code>dental-site-kit</code> 에 고쳐놓고 커밋하지 않은 것이 <b>104건</b>입니다. 그중 열 개가 킷 공용입니다. <code>build.py</code> · <code>build_pages.py</code> · <code>finalize.py</code> · <code>pages_home.py</code> · <code>pages_philo.py</code> · <code>pages_sub.py</code> · <code>run_build.py</code> · <code>subset_font.py</code> · <code>wp_import.py</code> · <code>wp_theme.py</code>. 이 열 개가 병원 여섯 곳을 함께 먹입니다.</p>
-    <p>무엇이 위험한지 말씀드립니다. 공용 파일은 한 번 손대면 여섯이 같이 흔들립니다. 그런데 커밋이 없으면 <b>"어제까지는 멀쩡했다"는 자리가 없습니다.</b> 브이플란트에서 사진이 안 열려 킷 버그로 오진하셨던 일을 기억하실 겁니다. 그때는 원인이 전하의 중복 CSS 한 곳이었습니다. 만약 오늘 여섯 병원 중 하나가 깨지면, 원인 후보는 104개입니다. 하나씩 되돌려보며 찾는 데 반나절이 갑니다.</p>
-    <p>병법에서 진을 치고 나아갈 때 장수는 <b>퇴로부터 봅니다.</b> 나아갈 길만 보는 장수는 이겨도 크게 이기지 못하고 지면 전멸합니다. 커밋이 곧 퇴로입니다. 퇴로가 촘촘할수록 전하은 더 과감하게 킷을 고치실 수 있습니다.</p>
-    <p>전하이 커밋을 미루시는 이유를 신은 압니다. <b>커밋을 완성 표시로 여기시기 때문입니다.</b> 그래서 "다 되면 하겠다" 하시고 104건이 쌓였습니다. 커밋은 준공이 아니라 <b>이정표</b>입니다. 길에 세우는 것이지 도착해서 세우는 것이 아닙니다. 오늘 이렇게 하시면 됩니다.</p>
-    <p><code>git -C dental-site-kit add build.py build/ &amp;&amp; git -C dental-site-kit commit -m "kit: 이안 납품 반영 (작업 중)"</code></p>
-    <p>메시지에 "작업 중"이라 적으셔도 좋습니다. 되돌릴 자리를 만드는 것이 목적이지 완성을 선언하는 것이 아닙니다.</p>
-    <p>둘째로, 신을 부리실 때 이 한 줄을 얹으십시오.</p>
-    <p><code>한 덩이가 끝날 때마다 git status 로 바뀐 파일을 보여주고 커밋 메시지를 제안해라. 내가 좋다 하면 그때 커밋해라.</code></p>
-    <p>이러시면 신이 스무 파일을 한꺼번에 고쳐놓고 잠자코 있는 일이 없어집니다. 전하이 매번 승낙하시니 통제도 잃지 않습니다.</p>
-    <p>셋째, 폰트 조각 <code>.woff2</code> 같은 이진 파일이 104건에 섞여 있습니다. 이런 것은 글자로 견줄 수가 없어 무엇이 왜 바뀌었는지 나중에는 아무도 모릅니다. <b>이진 파일일수록 커밋 단위를 작게</b> 하시고, 메시지에 "이안 원고 반영으로 재생성" 처럼 <b>원인</b>을 적어두십시오. 파일은 원인을 기억하지 못합니다.</p>
-    <p>넷째, 커밋 메시지에 무엇을 적을지 말씀드립니다. <b>무엇을 고쳤는지는 적지 마십시오.</b> 그것은 파일을 견주면 나옵니다. 적어야 할 것은 <b>왜 고쳤는지</b>입니다. "wp_theme.py 수정" 은 아무 말도 하지 않습니다. "페이지마다 제목이 홈 것으로 뭉개져서 head-parts 로 뺐다" 는 파일 어디에도 없습니다. 석 달 뒤 같은 자리를 다시 여실 때, 전하을 구해주는 것은 코드가 아니라 이 한 줄입니다.</p>
-    <p>이것은 신에게도 그렇습니다. 전하이 대화창을 닫으시면 <b>신의 기억은 그 자리에서 사라집니다.</b> 다음에 부르시면 신은 처음 온 사람입니다. 그때 신이 읽을 수 있는 것은 파일과 커밋 기록뿐입니다. 그러니 커밋 메시지는 <b>다음 세션의 신에게 남기는 편지</b>라 여기십시오. 전하이 편지를 잘 써두시면 신이 같은 것을 두 번 묻지 않습니다.</p>
-    <p>끝으로 하지 마실 것 하나. <b>가지를 치지 마십시오.</b> 남들이 branch 를 나누고 병합하는 것은 여럿이 같은 밭을 갈기 때문입니다. 전하은 혼자십니다. 혼자서 가지를 나누면 관리할 것만 늘고 되돌릴 자리는 그대로입니다. 전하께 필요한 것은 갈래가 아니라 <b>자주 찍는 말뚝</b>입니다. 오늘은 말뚝 하나만 박으십시오.</p>
-    <p>그리고 하루를 접으실 때 이 한 줄만 쳐 보십시오. <code>git -C dental-site-kit status --short | wc -l</code> 숫자가 열을 넘거든 그날은 코드를 더 고치지 마시고 묶는 데 쓰십시오. 오늘 그 숫자가 104 였습니다.</p>
+    <p class="lead">확인하지 않고 "됐다"고 말하는 습관부터 끊으십시오.</p>
+    <ol class="pri">
+      <li><strong>끝났다는 기준을 먼저 정하게 하라.</strong> 일 시키실 때 <code>고치기 전에, 고쳐졌다는 걸 무엇으로 확인할지 먼저 말해라</code> 한 줄이면 됩니다. 반나절을 아낍니다.</li>
+      <li><strong>"다 됐습니다"에는 증거를 물으십시오.</strong> "무엇을 실행해서 확인했느냐" 한마디면 충분합니다. 빌드 통과는 확인이 아닙니다.</li>
+      <li><strong>0%·100% 같은 반듯한 숫자를 의심하십시오.</strong> 게이트 0건 통과에 한 번 속으셨습니다. 집계 말고 원본 한 줄을 여십시오.</li>
+    </ol>
   </div>
 </div>
 
 <div class="who aside c-shiyuan">
   <div class="face">
     <div class="medal"><span class="han">사원</span></div>
-    <div class="nameplate">방통<span class="role">군사</span></div>
+    <div class="nameplate">방통<span class="role">오늘의 군령</span></div>
   </div>
   <div class="bubble">
     <p class="order-check"><b>어제의 군령</b> dental-geo-v2 에 STATUS.md 를 열 줄로 적고 커밋하라 &nbsp;→&nbsp; <b>판정</b> <b>불이행.</b> <code>ls dental-geo-v2/STATUS.md</code> 결과 없습니다. 다만 군령이 아홉 시각 전 것이니, 신은 이것을 게으름으로 세지 않고 <b>유예</b>로 세겠습니다. 오늘 해가 지기 전에 이행하십시오.</p>
@@ -746,7 +769,7 @@ body{
 <div class="who c-wenruo">
   <div class="face">
     <div class="medal"><span class="han">문약</span></div>
-    <div class="nameplate">순욱<span class="zi">자 문약</span><span class="role">상서령</span></div>
+    <div class="nameplate">순욱<span class="role">사업·방향</span></div>
   </div>
   <div class="bubble">
     <span class="say">전하의 사업과 삶</span>
@@ -768,7 +791,7 @@ body{
 <div class="who aside c-fengxiao">
   <div class="face">
     <div class="medal"><span class="han">봉효</span></div>
-    <div class="nameplate">곽가<span class="role">군사좨주</span></div>
+    <div class="nameplate">곽가<span class="role">반론</span></div>
   </div>
   <div class="bubble"><p>문약의 계책은 좋으나 하나가 위험합니다. <b>여덟에 다 기본값을 붙이시면 안 됩니다.</b> 증례 수 1,326건은 다릅니다. 이것은 취향이 아니라 <b>의료법이 객관적 근거를 요구하는 숫자</b>입니다. 여기에 "회신 없으면 이대로 갑니다"를 붙이시면, 근거 없는 숫자를 원장이 아니라 <b>전하이 내보낸 것</b>이 됩니다. 문제가 생기면 만든 사람이 먼저 불립니다. 일곱은 그리 하시되, 증례 수만은 기본값을 반대로 잡으십시오. <b>근거 서류가 오기 전엔 내린다.</b> 이쪽이 안전합니다.</p></div>
 </div>
@@ -776,7 +799,7 @@ body{
 <div class="who c-diaochan">
   <div class="face">
     <div class="medal"><span class="han">초선</span></div>
-    <div class="nameplate">초선<span class="role">이목</span></div>
+    <div class="nameplate">초선<span class="role">경제 뉴스</span></div>
   </div>
   <div class="bubble">
     <span class="say">천하의 소식</span>
@@ -794,7 +817,7 @@ body{
 <div class="who aside c-gongjin">
   <div class="face">
     <div class="medal"><span class="han">공근</span></div>
-    <div class="nameplate">주유<span class="role">대도독</span></div>
+    <div class="nameplate">주유<span class="role">경쟁·판세</span></div>
   </div>
   <div class="bubble"><p>판세를 말씀드립니다. 남들은 병원 하나에 한 달을 씁니다. 전하은 9월 6일에 연세하늘치과를 킷에 태우고 이튿날 밤 이안치과 납품물을 다시 뽑으셨습니다. <b>여섯 번째 병원의 값이 첫 번째보다 싸다</b> — 이것이 전하의 해자입니다. 값싼 업자는 여섯 번째도 첫 번째와 같은 값을 치릅니다.</p><p>다만 이 해자는 <b>킷이 정돈돼 있을 때만</b> 해자입니다. 공용 파일 열 개가 묶이지 않은 채로 굴러다니면, 병원이 늘수록 빨라지는 게 아니라 병원이 늘수록 무서워집니다. 공명의 말과 신의 말은 같은 말입니다.</p></div>
 </div>
@@ -802,7 +825,7 @@ body{
 <div class="who c-jini">
   <div class="face">
     <div class="medal"><span class="han">찌니</span></div>
-    <div class="nameplate">찌니<span class="role">여관</span></div>
+    <div class="nameplate">찌니<span class="role">AI 소식</span></div>
   </div>
   <div class="bubble">
     <span class="say">오늘의 AI 소식</span>
@@ -820,7 +843,7 @@ body{
 <div class="who c-mengde">
   <div class="face">
     <div class="medal"><span class="han">맹덕</span></div>
-    <div class="nameplate">조조<span class="zi">자 맹덕</span><span class="role">승상</span></div>
+    <div class="nameplate">조조<span class="role">시세</span></div>
   </div>
   <div class="bubble">
     <span class="say">오늘의 시세</span>
@@ -850,7 +873,7 @@ body{
 <div class="who c-yunchang">
   <div class="face">
     <div class="medal"><span class="han">운장</span></div>
-    <div class="nameplate">관우<span class="zi">자 운장</span><span class="role">전장군</span></div>
+    <div class="nameplate">관우<span class="role">고전</span></div>
   </div>
   <div class="bubble">
     <span class="say">오늘 새길 옛말</span>
@@ -869,6 +892,7 @@ body{
     </div>
   </div>
 </div>
+  </div>
   </div>
   </div>
   </div>
