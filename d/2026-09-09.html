@@ -584,6 +584,44 @@ body{
 @keyframes kingIn{ to{transform:scale(1);opacity:1} }
 @media(max-width:600px){ .intro .king-big{width:150px;height:150px} }
 
+
+/* 도파민 */
+.prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:120;background:rgba(0,0,0,.5)}
+.prog i{display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--gold-d),var(--gold) 55%,#fff3cf);
+  box-shadow:0 0 12px rgba(201,162,39,.7);transition:width .1s linear}
+
+.done-box{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px;padding:14px 16px;
+  background:linear-gradient(180deg,rgba(47,107,90,.14),rgba(47,107,90,.05));
+  border:1px solid rgba(47,107,90,.45);border-left:4px solid var(--jade);border-radius:0 6px 6px 0}
+.done-btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  padding:11px 20px;border-radius:5px;font-family:inherit;font-size:14px;font-weight:700;
+  background:linear-gradient(180deg,#2f6b5a,#17402f);border:1px solid #4e9c85;color:#e8f7f1;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2), 0 4px 12px rgba(0,0,0,.45);
+  transition:transform .12s, box-shadow .2s, background .2s}
+.done-btn:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3), 0 0 20px rgba(78,156,133,.55)}
+.done-btn:active{transform:translateY(0) scale(.97)}
+.done-btn.on{background:linear-gradient(180deg,#7a6117,#3d3009);border-color:var(--gold);color:#f7ecc6}
+.done-btn .dk{font-size:17px;line-height:1}
+.streak{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:20px;
+  background:linear-gradient(180deg,#3d1410,#260c09);border:1px solid var(--vermil);
+  color:#f2a08f;font-size:13px;font-weight:700}
+.streak .fire{font-size:15px;animation:flick 1.4s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1) rotate(-3deg);opacity:.9}50%{transform:scale(1.18) rotate(3deg);opacity:1}}
+.streak.zero{background:linear-gradient(180deg,#2a2418,#141109);border-color:var(--gold-d);color:#8e8262}
+.streak.zero .fire{animation:none;opacity:.5}
+
+.fx{position:fixed;inset:0;z-index:150;pointer-events:none;overflow:hidden}
+.fx b{position:absolute;width:9px;height:14px;border-radius:2px;opacity:0;
+  animation:popfx 1.5s cubic-bezier(.15,.7,.3,1) forwards}
+@keyframes popfx{0%{opacity:1;transform:translate(0,0) rotate(0) scale(.6)}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(1)}}
+
+.cmd-btn.read{border-color:rgba(78,156,133,.75)}
+.cmd-btn.read::after{content:"\2713";margin-left:auto;color:#6fc9a8;font-size:13px;font-weight:900}
+.sb-i{position:relative}
+.sb-i.read::after{content:"\2713";margin-left:auto;color:#6fc9a8;font-weight:900}
+
 /* ── 형세판 (능력치판) ─────────────────────────────── */
 .board{
   position:relative;z-index:1;margin:0 0 28px;
@@ -1070,6 +1108,7 @@ body{
   </div>
   </div>
   </div>
+  </div>
 
   <div class="close">
     <div class="words">
@@ -1169,6 +1208,112 @@ body{
       cmd.appendChild(b);
     });
   }
+
+  // 진행 게이지
+  var prog = document.createElement('div');
+  prog.className = 'prog';
+  prog.innerHTML = '<i></i>';
+  document.body.appendChild(prog);
+  var pi = prog.querySelector('i');
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    pi.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  function burst(x, y) {
+    var fx = document.createElement('div');
+    fx.className = 'fx';
+    var cols = ['#c9a227', '#e8cf7a', '#a52a1e', '#2f8a63', '#f0dca0'];
+    for (var i = 0; i < 46; i++) {
+      var b = document.createElement('b');
+      var a = Math.random() * Math.PI * 2, d = 90 + Math.random() * 260;
+      b.style.left = x + 'px'; b.style.top = y + 'px';
+      b.style.background = cols[i % cols.length];
+      b.style.setProperty('--dx', Math.cos(a) * d + 'px');
+      b.style.setProperty('--dy', (Math.sin(a) * d + 160) + 'px');
+      b.style.setProperty('--rot', (Math.random() * 900 - 450) + 'deg');
+      b.style.animationDelay = (Math.random() * 0.12) + 's';
+      fx.appendChild(b);
+    }
+    document.body.appendChild(fx);
+    setTimeout(function () { fx.remove(); }, 1900);
+  }
+
+  function fanfare() {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      var c = new AC(), t = c.currentTime;
+      [523.25, 659.25, 783.99, 1046.5].forEach(function (f, i) {
+        var o = c.createOscillator(), g = c.createGain();
+        o.type = 'triangle'; o.frequency.value = f;
+        var st = t + i * 0.085;
+        g.gain.setValueAtTime(0.0001, st);
+        g.gain.exponentialRampToValueAtTime(0.13, st + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.0001, st + 0.5);
+        o.connect(g); g.connect(c.destination); o.start(st); o.stop(st + 0.55);
+      });
+      setTimeout(function () { c.close(); }, 1500);
+    } catch (e) { }
+  }
+
+  var KEY = 'dsw.done';
+  function loadDone() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
+  function saveDone(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { } }
+  function dkey(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function streakOf(o) {
+    var n = 0, d = new Date();
+    for (var i = 0; i < 400; i++) {
+      if (o[dkey(d)]) { n++; } else if (i > 0) { break; }
+      d.setDate(d.getDate() - 1);
+    }
+    return n;
+  }
+
+  var orderEl = document.querySelector('.court .order');
+  if (orderEl) {
+    var tk = dkey(new Date());
+    var box = document.createElement('div');
+    box.className = 'done-box';
+    var dbtn = document.createElement('button');
+    dbtn.type = 'button';
+    var sk = document.createElement('span');
+    function paint() {
+      var o = loadDone(), n = streakOf(o), on = !!o[tk];
+      dbtn.className = 'done-btn' + (on ? ' on' : '');
+      dbtn.innerHTML = on ? '<span class="dk">\u2713</span> \uc624\ub298 \uad70\ub839 \uc644\ub8cc' : '<span class="dk">\u2610</span> \uad70\ub839\uc744 \ud574\ub0c8\ub2e4';
+      sk.className = 'streak' + (n ? '' : ' zero');
+      sk.innerHTML = '<span class="fire">\ud83d\udd25</span> ' + (n ? n + '\uc77c \uc5f0\uc18d' : '\uc544\uc9c1 \uc2dc\uc791 \uc804');
+    }
+    dbtn.addEventListener('click', function () {
+      var o = loadDone();
+      if (o[tk]) { delete o[tk]; saveDone(o); paint(); blip(420); return; }
+      o[tk] = 1; saveDone(o); paint();
+      var r = dbtn.getBoundingClientRect();
+      burst(r.left + r.width / 2, r.top + r.height / 2);
+      fanfare();
+    });
+    paint();
+    box.appendChild(dbtn); box.appendChild(sk);
+    orderEl.parentNode.insertBefore(box, orderEl.nextSibling);
+  }
+
+  var seen = {};
+  if ('IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var key = (e.target.className.match(/c-([a-z]+)/) || [])[1];
+        if (!key || seen[key]) return;
+        seen[key] = 1;
+        document.querySelectorAll('.cmd-btn.c-' + key + ', .sb-i.c-' + key).forEach(function (b) { b.classList.add('read'); });
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('.court > .who').forEach(function (w) { io2.observe(w); });
+  }
+
 
   // ── 클로드 코드로 보내기 ─────────────────────────
   var toast = document.createElement('div');
