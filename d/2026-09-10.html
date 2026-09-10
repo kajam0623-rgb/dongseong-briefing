@@ -85,7 +85,8 @@ body{
 .hero{
   position:relative;z-index:1;margin:0 0 20px;
   border:1px solid var(--gold-d);
-  background:#0d0b08 var(--art1) center 46% / cover no-repeat;
+  background:#0d0b08 var(--art1,none) center 46% / cover no-repeat;
+  background-color:#0d0b08;
   aspect-ratio:16/9;
   box-shadow:inset 0 0 0 1px #000, 0 14px 34px rgba(0,0,0,.6)
 }
@@ -677,37 +678,37 @@ body{
   .sd .sdb{animation:none !important}
 }
 
-/* -- 어제 한 일 (회고) -------------------------------- */
+/* -- 어제 한 일 (회고) — 밝은 종이 위에 얹힌다 --------- */
 .retro{
   margin:0 0 16px;padding:14px 16px 13px;
-  background:linear-gradient(180deg,rgba(47,107,90,.14),rgba(10,25,20,.30));
+  background:linear-gradient(180deg,#e8efe6,#dde7da);
   border:1px solid rgba(47,107,90,.45);border-left:4px solid var(--jade);
   border-radius:0 8px 8px 0
 }
 .retro-t{
-  font-size:13px;letter-spacing:.10em;color:#8fd0b8;
+  font-size:13px;letter-spacing:.10em;color:#2f6b5a;
   display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:8px
 }
-.retro-t b{font-weight:800;color:#b8e6d2}
-.retro-d{font-size:12px;color:#9a9078;letter-spacing:.02em}
-.retro-s{margin:0 0 10px;font-size:15px;line-height:1.9;color:#e6dcc2}
+.retro-t b{font-weight:800;color:#1d4a3c}
+.retro-d{font-size:12px;color:#6b6450;letter-spacing:.02em}
+.retro-s{margin:0 0 10px;font-size:15px;line-height:1.9;color:#241d13}
 .retro-l{list-style:none;margin:0;padding:0}
 .retro-l li{
   position:relative;padding:6px 0 6px 74px;
-  font-size:14.5px;line-height:1.85;color:#d8ceb2;
-  border-top:1px dashed rgba(122,97,23,.28)
+  font-size:14.5px;line-height:1.85;color:#2c2519;
+  border-top:1px dashed rgba(47,107,90,.30)
 }
 .retro-l li:first-child{border-top:0}
 .retro-l li b{
   position:absolute;left:0;top:6px;width:62px;
   font-size:11.5px;font-weight:700;letter-spacing:.02em;
   text-align:center;padding:3px 0;border-radius:3px;
-  background:rgba(0,0,0,.35);border:1px solid rgba(122,97,23,.4);color:#d9c489
+  background:#fff;border:1px solid rgba(122,97,23,.45);color:#5b4d20
 }
-.retro-l .rg b{color:#7cc4ab;border-color:rgba(47,107,90,.6)}
-.retro-l .rb b{color:#e0917f;border-color:rgba(165,42,30,.6)}
-.retro-l .rf b{color:#e8cf7a;border-color:rgba(201,162,39,.55)}
-.retro-l .ri b{color:#9db8e0;border-color:rgba(90,120,170,.55)}
+.retro-l .rg b{color:#1d5c48;border-color:rgba(47,107,90,.65)}
+.retro-l .rb b{color:#8f2418;border-color:rgba(165,42,30,.6)}
+.retro-l .rf b{color:#7a5f10;border-color:rgba(201,162,39,.7)}
+.retro-l .ri b{color:#2b4b7a;border-color:rgba(60,90,150,.6)}
 @media (max-width:640px){
   .retro-l li{padding:26px 0 6px 0}
   .retro-l li b{position:static;display:inline-block;margin-bottom:2px}
@@ -832,7 +833,7 @@ body{
 /* ── 동성왕 초상 ───────────────────────────────────── */
 .king{
   width:132px;height:132px;border-radius:4px;flex:0 0 132px;
-  background:var(--art2) center top / cover no-repeat;
+  background:var(--art2,none) center top / cover no-repeat;
   border:2px solid var(--gold);
   box-shadow:inset 0 0 0 1px #000, inset 0 1px 0 rgba(255,236,180,.4),
              0 0 0 1px rgba(0,0,0,.8), 0 8px 22px rgba(0,0,0,.7), 0 0 26px rgba(201,162,39,.28)
@@ -842,7 +843,7 @@ body{
 
 .intro .king-big{
   width:210px;height:210px;margin:0 auto 22px;border-radius:6px;
-  background:var(--art3) center top / cover no-repeat;
+  background:var(--art3,none) center top / cover no-repeat;
   border:3px solid var(--gold);
   box-shadow:0 0 0 1px #000, 0 0 60px rgba(201,162,39,.45), 0 18px 50px rgba(0,0,0,.8);
   transform:scale(.72);opacity:0;
@@ -1265,7 +1266,7 @@ html,body{max-width:100%;overflow-x:hidden}
   <div class="intro-in">
     <div class="king-big"></div>
     <h1>동성왕 아침 브리핑</h1>
-    <div class="sub">2026년 9월 10일 (목) · 제 9 회</div>
+    <div class="sub">2026년 9월 10일 · 제 9 회</div>
     <div class="rule"></div>
   </div>
 </div>
@@ -1281,7 +1282,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
     <button class="bgm" type="button" data-on="0" aria-pressed="false"><span class="dot"></span><span class="bgm-t">풍악</span></button>
     <div class="beam-date">
-      <b>2026년 9월 10일 (목)</b><br>병오년 9월 10일<br>제 9 회
+      <b>2026년 9월 10일</b><br><br>제 9 회
     </div>
   </div></div>
 
@@ -1363,6 +1364,7 @@ html,body{max-width:100%;overflow-x:hidden}
 </div>
 
   <div class="court">
+
 <div class="board">
  <div class="board-t">형 세 판 · 전하의 오늘</div>
  <div class="stats">
@@ -1552,9 +1554,12 @@ html,body{max-width:100%;overflow-x:hidden}
   </div>
  </div>
 </div>
+  
   </div>
 
   <div class="past">
+    <div class="past-t">지 난 브 리 핑</div>
+
     <div class="past-t">지 난 브 리 핑</div>
     <div class="past-pick">
       <select class="past-sel" aria-label="날짜 선택">
@@ -1567,6 +1572,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <a href="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-10.html"><b>9월 10일</b><span>오늘</span></a>
       <a href="https://kajam0623-rgb.github.io/dongseong-briefing/d/2026-09-09.html"><b>9월 9일</b><span>수요일</span></a>
     </div>
+  
   </div>
 
   <div class="close">
